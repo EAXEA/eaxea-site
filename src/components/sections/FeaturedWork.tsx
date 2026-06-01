@@ -23,7 +23,7 @@ export default function FeaturedWork() {
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 md:gap-6">
+      <div className="grid grid-cols-3 gap-2.5 sm:gap-4 md:gap-6">
         {featuredWork.map((study, i) => (
           <ShowcaseCard key={study.slug} study={study} index={i} />
         ))}

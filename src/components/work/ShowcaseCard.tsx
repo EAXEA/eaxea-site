@@ -1,15 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import type { CaseStudy } from "@/data/work";
 import GradientCover from "@/components/work/GradientCover";
+import { prefersReducedMotion } from "@/lib/gsap";
 
 /**
- * Homepage showcase card. Credibility-first: the REAL product still (the loop's
- * own first frame) is the default poster; the motion preview only plays on
- * desktop hover. Touch devices keep the static poster (tap navigates). No global
- * autoplay — videos use preload="none" and load on hover.
+ * Showcase card. The product capture autoplays (muted, looping) as soon as it
+ * mounts — no play button, no hover gate. Honors reduced-motion (stays on the
+ * poster). Layout: small square "album cover" with the title captioned below on
+ * mobile; tall 9:16 card with the title overlaid on desktop.
  */
 export default function ShowcaseCard({
   study,
@@ -20,31 +21,21 @@ export default function ShowcaseCard({
 }) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
-  const play = () => {
+  useEffect(() => {
     const v = videoRef.current;
-    if (v) {
-      v.play().catch(() => {});
-    }
-  };
-  const stop = () => {
-    const v = videoRef.current;
-    if (v) {
-      v.pause();
-      v.currentTime = 0; // snap back to the real-product poster frame
-    }
-  };
+    if (!v || prefersReducedMotion()) return;
+    // muted autoplay needs no user gesture; start as soon as the card mounts.
+    v.play().catch(() => {});
+  }, []);
 
   return (
     <Link
       href={`/work/${study.slug}`}
-      onMouseEnter={play}
-      onMouseLeave={stop}
-      className="group relative block overflow-hidden rounded-2xl border border-line bg-surface transition-colors duration-500 hover:border-line-strong"
+      className="group block"
       style={{ ["--accent" as string]: study.accent }}
     >
-      {/* media: 9:16, poster = loop frame 0 (no jump on hover). Falls back to a
-          branded gradient cover for works without a real showcase asset yet. */}
-      <div className="relative aspect-[9/16] w-full overflow-hidden">
+      {/* cover — square album-style on mobile, tall 9:16 on desktop */}
+      <div className="relative aspect-square overflow-hidden rounded-xl border border-line bg-surface transition-colors duration-500 group-hover:border-line-strong md:aspect-[9/16] md:rounded-2xl">
         {study.media ? (
           <video
             ref={videoRef}
@@ -54,7 +45,7 @@ export default function ShowcaseCard({
             muted
             loop
             playsInline
-            preload="none"
+            preload="auto"
           />
         ) : (
           <GradientCover accent={study.accent} className="absolute inset-0" />
@@ -62,13 +53,12 @@ export default function ShowcaseCard({
         {/* readability scrim */}
         <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/20" />
 
-        {/* index */}
-        <span className="absolute left-4 top-4 font-mono text-xs text-white/70">
+        {/* index + status — desktop only (keeps the mobile album cover clean) */}
+        <span className="absolute left-4 top-4 hidden font-mono text-xs text-white/70 md:block">
           {String(index + 1).padStart(2, "0")}
         </span>
-        {/* status pill */}
         <span
-          className="absolute right-4 top-4 rounded-full border px-2.5 py-1 font-mono text-[0.6rem] uppercase tracking-widest backdrop-blur"
+          className="absolute right-4 top-4 hidden rounded-full border px-2.5 py-1 font-mono text-[0.6rem] uppercase tracking-widest backdrop-blur md:block"
           style={{
             color: study.accent,
             borderColor: "color-mix(in oklab, var(--accent) 50%, transparent)",
@@ -78,23 +68,27 @@ export default function ShowcaseCard({
           {study.status}
         </span>
 
-        {/* play affordance — fades out on hover */}
-        <span className="pointer-events-none absolute right-4 bottom-4 grid size-10 place-items-center rounded-full border border-white/30 bg-black/30 text-white/90 backdrop-blur transition-opacity duration-300 group-hover:opacity-0 md:flex">
-          <span aria-hidden>▶</span>
-        </span>
-
-        {/* title block */}
-        <div className="absolute inset-x-0 bottom-0 p-5">
+        {/* desktop overlaid title */}
+        <div className="absolute inset-x-0 bottom-0 hidden p-5 md:block">
           <h3 className="display text-[clamp(1.6rem,2.6vw,2.4rem)] uppercase leading-[0.95] text-white">
             {study.title}
           </h3>
           <p className="mt-1.5 text-sm text-white/65">{study.category}</p>
-          {/* accent bar grows on hover */}
           <span
             className="mt-3 block h-[3px] w-10 origin-left rounded-full transition-transform duration-500 group-hover:scale-x-[2.4]"
             style={{ background: study.accent }}
           />
         </div>
+      </div>
+
+      {/* mobile caption — album-cover style */}
+      <div className="mt-2 md:hidden">
+        <h3 className="display text-xs uppercase leading-tight text-fg">
+          {study.title}
+        </h3>
+        <p className="mt-0.5 truncate text-[0.65rem] text-muted">
+          {study.category}
+        </p>
       </div>
     </Link>
   );
