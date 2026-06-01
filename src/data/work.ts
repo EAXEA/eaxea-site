@@ -100,6 +100,8 @@ export const work: CaseStudy[] = [
       { label: "Teslim", value: "Live" },
     ],
     accent: "#34D399",
+    featured: true,
+    media: true,
   },
   {
     slug: "bass-assistant",
