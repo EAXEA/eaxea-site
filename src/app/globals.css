@@ -114,18 +114,24 @@ html.lenis body {
 }
 
 .gradient-text {
+  /* Mirrored palette (ember…cyan…ember) so the looping background-position has
+     no hard seam — the ember edges meet, killing the harsh orange "snap" every
+     cycle. Ember also blends into magenta sooner for a softer entry. */
   background: linear-gradient(
     100deg,
-    var(--color-ember),
-    var(--color-magenta) 38%,
-    var(--color-violet) 68%,
-    var(--color-cyan)
+    var(--color-ember) 0%,
+    var(--color-magenta) 22%,
+    var(--color-violet) 42%,
+    var(--color-cyan) 50%,
+    var(--color-violet) 58%,
+    var(--color-magenta) 78%,
+    var(--color-ember) 100%
   );
   background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: hue-shift 8s linear infinite;
+  animation: hue-shift 11s linear infinite;
 }
 
 @keyframes hue-shift {
