@@ -1,11 +1,47 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { Component, type ReactNode, useEffect, useState } from "react";
 import { prefersReducedMotion } from "@/lib/gsap";
 
 // Code-split the 3D bundle: it never ships to clients that won't render it.
 const HeroCanvas = dynamic(() => import("./HeroCanvas"), { ssr: false });
+
+/** Real capability probe — actually tries to obtain a WebGL context. */
+function webglAvailable(): boolean {
+  try {
+    const canvas = document.createElement("canvas");
+    const gl = (canvas.getContext("webgl2") ||
+      canvas.getContext("webgl")) as WebGLRenderingContext | null;
+    if (!gl) return false;
+    // free the probe context immediately so we don't burn one of the ~16 slots
+    gl.getExtension("WEBGL_lose_context")?.loseContext();
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Catches a WebGL context failure thrown while the canvas mounts (driver off,
+ * context limit, etc.) and tells the parent to drop back to the CSS aurora
+ * instead of crashing the whole page.
+ */
+class CanvasErrorBoundary extends Component<
+  { onError: () => void; children: ReactNode },
+  { failed: boolean }
+> {
+  state = { failed: false };
+  static getDerivedStateFromError() {
+    return { failed: true };
+  }
+  componentDidCatch() {
+    this.props.onError();
+  }
+  render() {
+    return this.state.failed ? null : this.props.children;
+  }
+}
 
 /**
  * Decides between the live particle galaxy and a cheap CSS aurora fallback.
@@ -21,9 +57,10 @@ export default function HeroBackground() {
       typeof navigator !== "undefined" &&
       // @ts-expect-error deviceMemory is non-standard but useful
       typeof navigator.deviceMemory === "number" &&
-      // @ts-expect-error
+      // @ts-expect-error — navigator.deviceMemory is non-standard but useful
       navigator.deviceMemory <= 4;
-    if (!prefersReducedMotion() && !coarse && !smallMem) {
+    if (!prefersReducedMotion() && !coarse && !smallMem && webglAvailable()) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- one-shot client capability probe; can only run post-mount
       setRender3D(true);
     }
   }, []);
@@ -47,7 +84,11 @@ export default function HeroBackground() {
         }}
       />
 
-      {render3D && <HeroCanvas />}
+      {render3D && (
+        <CanvasErrorBoundary onError={() => setRender3D(false)}>
+          <HeroCanvas />
+        </CanvasErrorBoundary>
+      )}
 
       {/* vignette + bottom fade into the page */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(6,6,8,0.7)_100%)]" />
