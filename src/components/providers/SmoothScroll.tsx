@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Lenis from "lenis";
 import { usePathname } from "next/navigation";
 import { gsap, ScrollTrigger, prefersReducedMotion } from "@/lib/gsap";
@@ -15,6 +15,7 @@ export default function SmoothScroll({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+  const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
     if (prefersReducedMotion()) return;
@@ -25,6 +26,7 @@ export default function SmoothScroll({
       smoothWheel: true,
       touchMultiplier: 1.6,
     });
+    lenisRef.current = lenis;
 
     lenis.on("scroll", ScrollTrigger.update);
 
@@ -39,13 +41,20 @@ export default function SmoothScroll({
     return () => {
       gsap.ticker.remove(raf);
       lenis.destroy();
+      lenisRef.current = null;
       window.removeEventListener("load", refresh);
     };
   }, []);
 
   // On route change, jump to top and recompute triggers for the new page.
+  // Use Lenis' own scrollTo so its internal position stays in sync (a raw
+  // window.scrollTo would desync the smooth-scroll state).
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(0, { immediate: true });
+    } else {
+      window.scrollTo(0, 0);
+    }
     ScrollTrigger.refresh();
   }, [pathname]);
 

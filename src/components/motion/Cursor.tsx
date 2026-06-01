@@ -30,25 +30,28 @@ export default function Cursor() {
     const grow = () => gsap.to(r, { scale: 2.4, duration: 0.3, ease: "power3" });
     const shrink = () => gsap.to(r, { scale: 1, duration: 0.3, ease: "power3" });
 
-    window.addEventListener("pointermove", move);
+    // Delegated on document (which survives client-side navigation) instead of
+    // binding to a one-time querySelectorAll snapshot — so links/buttons added
+    // on later routes still grow the ring. pointerover/out bubble; closest()
+    // matches the interactive ancestor.
+    const SELECTOR = "a, button, [data-cursor], input, textarea";
+    const onOver = (e: PointerEvent) => {
+      if ((e.target as Element | null)?.closest?.(SELECTOR)) grow();
+    };
+    const onOut = (e: PointerEvent) => {
+      if ((e.target as Element | null)?.closest?.(SELECTOR)) shrink();
+    };
 
-    const interactive = () =>
-      document.querySelectorAll<HTMLElement>(
-        "a, button, [data-cursor], input, textarea"
-      );
-    interactive().forEach((el) => {
-      el.addEventListener("mouseenter", grow);
-      el.addEventListener("mouseleave", shrink);
-    });
+    window.addEventListener("pointermove", move);
+    document.addEventListener("pointerover", onOver);
+    document.addEventListener("pointerout", onOut);
 
     gsap.set([d, r], { xPercent: -50, yPercent: -50, opacity: 1 });
 
     return () => {
       window.removeEventListener("pointermove", move);
-      interactive().forEach((el) => {
-        el.removeEventListener("mouseenter", grow);
-        el.removeEventListener("mouseleave", shrink);
-      });
+      document.removeEventListener("pointerover", onOver);
+      document.removeEventListener("pointerout", onOut);
     };
   }, []);
 

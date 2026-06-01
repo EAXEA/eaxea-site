@@ -33,9 +33,6 @@ export default function Nav() {
     };
   }, [open]);
 
-  // Close menu on route change.
-  useEffect(() => setOpen(false), [pathname]);
-
   return (
     <>
       <header
@@ -100,8 +97,9 @@ export default function Nav() {
         </div>
       </header>
 
-      {/* Mobile overlay */}
+      {/* Mobile overlay — inert when closed so it stays out of the tab order */}
       <div
+        inert={!open}
         className={cn(
           "fixed inset-0 z-40 flex flex-col justify-center bg-bg px-8 transition-all duration-500 md:hidden",
           open
@@ -114,6 +112,7 @@ export default function Nav() {
             <Link
               key={item.href}
               href={item.href}
+              onClick={() => setOpen(false)}
               className="display text-5xl uppercase text-fg transition-colors hover:text-ember"
               style={{
                 transform: open ? "translateY(0)" : "translateY(20px)",

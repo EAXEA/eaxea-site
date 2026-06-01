@@ -20,7 +20,9 @@ export default function IntroStatement() {
       if (prefersReducedMotion()) return;
       gsap.fromTo(
         ref.current!.querySelectorAll("[data-w]"),
-        { opacity: 0.16 },
+        // 0.4 keeps the faint→bright scrub effect while clearing the 3:1
+        // large-text contrast threshold even at the dimmest (initial) state.
+        { opacity: 0.4 },
         {
           opacity: 1,
           ease: "none",
