@@ -2,9 +2,7 @@
 
 import { useState } from "react";
 import { site } from "@/lib/site";
-
-const budgets = ["< 30k₺", "30–75k₺", "75–150k₺", "150k₺ +"];
-const topics = ["Web Design", "Full-Stack", "Vibe Coding", "Diğer"];
+import { budgets, topics } from "@/data/contact";
 
 /**
  * No backend yet: composes a prefilled mailto so the message lands in the

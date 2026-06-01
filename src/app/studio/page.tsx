@@ -6,38 +6,13 @@ import AnimatedHeading from "@/components/motion/AnimatedHeading";
 import ServicesSection from "@/components/sections/ServicesSection";
 import ProcessSection from "@/components/sections/ProcessSection";
 import { Spark } from "@/components/ui/Logo";
+import { capabilities, principles } from "@/data/studio";
 
 export const metadata: Metadata = {
   title: "Stüdyo",
   description:
     "EAXEA — premium, motion-first web deneyimleri üreten bağımsız bir creative development stüdyosu. Web design, full-stack ve vibe coding.",
 };
-
-const capabilities = [
-  "Art Direction",
-  "Design Systems",
-  "Motion / GSAP",
-  "WebGL / R3F",
-  "Next.js / TypeScript",
-  "Performans & SEO",
-  "Erişilebilirlik",
-  "AI / Vibe Coding",
-];
-
-const principles = [
-  {
-    t: "Sahne, sayfa değil",
-    d: "Her proje bir deneyim olarak kurgulanır. Akış, ritim ve geçişler tek bir dile bağlanır.",
-  },
-  {
-    t: "Cesur ama okunaklı",
-    d: "Gösteri hiçbir zaman içeriğin önüne geçmez. Hareket anlamı güçlendirir, dağıtmaz.",
-  },
-  {
-    t: "Hız bir özelliktir",
-    d: "Görsel iddia ile performans birlikte gelir. Mobilde de hızlı, hafif ve sağlam.",
-  },
-];
 
 export default function StudioPage() {
   return (
