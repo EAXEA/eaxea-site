@@ -28,6 +28,7 @@ export type CaseStudy = {
   media?: boolean;
 };
 
+// Ordered proof-first: live products lead, concept/in-progress work trails.
 export const work: CaseStudy[] = [
   {
     slug: "maiamari-studio",
@@ -63,6 +64,75 @@ export const work: CaseStudy[] = [
       { label: "Teslim", value: "Production" },
     ],
     accent: "#FF5C28",
+    featured: true,
+    media: true,
+  },
+  {
+    slug: "iklim-icin-ogretmenler",
+    title: "İklim için Öğretmenler",
+    client: "Mesleki Gelişim Programı",
+    category: "Platform · Education",
+    year: "2026",
+    role: ["Design", "Full-Stack"],
+    stack: ["Web", "Content System", "Vercel"],
+    url: "https://iklimicinogret.vercel.app",
+    repo: "https://github.com/EAXEA/iklimicinogret",
+    status: "Yayında",
+    summary:
+      "İklim için değişen öğretmenler için bir mesleki gelişim programı platformu.",
+    intro:
+      "İklim için Değişen ve Dönüştüren Öğretmenler programı; öğretmenleri iklim okuryazarlığı etrafında bir araya getiren bir mesleki gelişim girişimi. Programın dijital evi olacak bir platform gerekiyordu.",
+    challenge:
+      "Eğitim içeriğini, başvuru akışını ve program kimliğini tek bir net yapıda toplamak; geniş bir kitleye erişilebilir tutmak.",
+    approach: [
+      "Program bilgisini açık bir bilgi mimarisinde organize ettim",
+      "Başvuru ve katılım akışını sadeleştirdim",
+      "Sürdürülebilir, içerik eklenebilir bir yapı kurdum",
+    ],
+    outcome: [
+      "Programın bilinirliğini artıran tek bir merkez",
+      "Erişilebilir ve mobil uyumlu deneyim",
+      "Kolay güncellenebilir içerik yapısı",
+    ],
+    metrics: [
+      { label: "Odak", value: "Erişim" },
+      { label: "Tip", value: "Platform" },
+      { label: "Teslim", value: "Live" },
+    ],
+    accent: "#34D399",
+  },
+  {
+    slug: "bass-assistant",
+    title: "Bass Assistant",
+    client: "Açık kaynak / Ürün",
+    category: "Product · Chrome Extension",
+    year: "2026",
+    role: ["Product", "Full-Stack", "Vibe Coding"],
+    stack: ["JavaScript", "Chrome Extension", "AI Workflow"],
+    repo: "https://github.com/EAXEA/bass-assistant-v5.6.0",
+    status: "Ürün",
+    summary:
+      "Müzisyenler için çok-enstrümanlı ton motoru — web-first AI araştırma akışıyla.",
+    intro:
+      "Bass Assistant, enstrüman tonu üzerine çalışan müzisyenler için bir tarayıcı eklentisi. ChatGPT ve NotebookLM gibi araçları tek bir akışta birleştiren, web-first bir AI araştırma asistanı.",
+    challenge:
+      "Dağınık AI araçlarını müzisyenin iş akışına gömülü, tek tıkla erişilebilir bir yardımcıya dönüştürmek.",
+    approach: [
+      "Çok-enstrümanlı bir ton motorunu modüler olarak tasarladım",
+      "Web-first AI araştırma akışını eklentiye entegre ettim",
+      "Sürümleri klasör-bazlı ve göç edilebilir bir yapıda yönettim",
+    ],
+    outcome: [
+      "Müzisyenin tarayıcısında yaşayan pratik bir asistan",
+      "AI araçlarını tek akışta toplayan deneyim",
+      "Vibe coding ile hızlı iterasyon edilen ürün",
+    ],
+    metrics: [
+      { label: "Platform", value: "Chrome" },
+      { label: "Sürüm", value: "v5.6+" },
+      { label: "Tip", value: "Product" },
+    ],
+    accent: "#FF2D9C",
     featured: true,
     media: true,
   },
@@ -134,75 +204,6 @@ export const work: CaseStudy[] = [
       { label: "Durum", value: "Tasarımda" },
     ],
     accent: "#6E5BFF",
-  },
-  {
-    slug: "iklim-icin-ogretmenler",
-    title: "İklim için Öğretmenler",
-    client: "Mesleki Gelişim Programı",
-    category: "Platform · Education",
-    year: "2026",
-    role: ["Design", "Full-Stack"],
-    stack: ["Web", "Content System", "Vercel"],
-    url: "https://iklimicinogret.vercel.app",
-    repo: "https://github.com/EAXEA/iklimicinogret",
-    status: "Yayında",
-    summary:
-      "İklim için değişen öğretmenler için bir mesleki gelişim programı platformu.",
-    intro:
-      "İklim için Değişen ve Dönüştüren Öğretmenler programı; öğretmenleri iklim okuryazarlığı etrafında bir araya getiren bir mesleki gelişim girişimi. Programın dijital evi olacak bir platform gerekiyordu.",
-    challenge:
-      "Eğitim içeriğini, başvuru akışını ve program kimliğini tek bir net yapıda toplamak; geniş bir kitleye erişilebilir tutmak.",
-    approach: [
-      "Program bilgisini açık bir bilgi mimarisinde organize ettim",
-      "Başvuru ve katılım akışını sadeleştirdim",
-      "Sürdürülebilir, içerik eklenebilir bir yapı kurdum",
-    ],
-    outcome: [
-      "Programın bilinirliğini artıran tek bir merkez",
-      "Erişilebilir ve mobil uyumlu deneyim",
-      "Kolay güncellenebilir içerik yapısı",
-    ],
-    metrics: [
-      { label: "Odak", value: "Erişim" },
-      { label: "Tip", value: "Platform" },
-      { label: "Teslim", value: "Live" },
-    ],
-    accent: "#34D399",
-  },
-  {
-    slug: "bass-assistant",
-    title: "Bass Assistant",
-    client: "Açık kaynak / Ürün",
-    category: "Product · Chrome Extension",
-    year: "2026",
-    role: ["Product", "Full-Stack", "Vibe Coding"],
-    stack: ["JavaScript", "Chrome Extension", "AI Workflow"],
-    repo: "https://github.com/EAXEA/bass-assistant-v5.6.0",
-    status: "Ürün",
-    summary:
-      "Müzisyenler için çok-enstrümanlı ton motoru — web-first AI araştırma akışıyla.",
-    intro:
-      "Bass Assistant, enstrüman tonu üzerine çalışan müzisyenler için bir tarayıcı eklentisi. ChatGPT ve NotebookLM gibi araçları tek bir akışta birleştiren, web-first bir AI araştırma asistanı.",
-    challenge:
-      "Dağınık AI araçlarını müzisyenin iş akışına gömülü, tek tıkla erişilebilir bir yardımcıya dönüştürmek.",
-    approach: [
-      "Çok-enstrümanlı bir ton motorunu modüler olarak tasarladım",
-      "Web-first AI araştırma akışını eklentiye entegre ettim",
-      "Sürümleri klasör-bazlı ve göç edilebilir bir yapıda yönettim",
-    ],
-    outcome: [
-      "Müzisyenin tarayıcısında yaşayan pratik bir asistan",
-      "AI araçlarını tek akışta toplayan deneyim",
-      "Vibe coding ile hızlı iterasyon edilen ürün",
-    ],
-    metrics: [
-      { label: "Platform", value: "Chrome" },
-      { label: "Sürüm", value: "v5.6+" },
-      { label: "Tip", value: "Product" },
-    ],
-    accent: "#FF2D9C",
-    featured: true,
-    media: true,
   },
 ];
 
