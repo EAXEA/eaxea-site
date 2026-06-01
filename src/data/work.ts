@@ -23,6 +23,9 @@ export type CaseStudy = {
   /** hex used to theme the card + scene accent */
   accent: string;
   featured?: boolean;
+  /** true when a real showcase video/poster exists at /showcase/{slug}.*;
+   *  when false the cards fall back to a branded GradientCover. */
+  media?: boolean;
 };
 
 export const work: CaseStudy[] = [
@@ -61,6 +64,7 @@ export const work: CaseStudy[] = [
     ],
     accent: "#FF5C28",
     featured: true,
+    media: true,
   },
   {
     slug: "vetvital",
@@ -96,6 +100,7 @@ export const work: CaseStudy[] = [
     ],
     accent: "#2FE0FF",
     featured: true,
+    media: true,
   },
   {
     slug: "ancyra",
@@ -197,6 +202,7 @@ export const work: CaseStudy[] = [
     ],
     accent: "#FF2D9C",
     featured: true,
+    media: true,
   },
 ];
 

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRef } from "react";
 import type { CaseStudy } from "@/data/work";
+import GradientCover from "@/components/work/GradientCover";
 
 /**
  * Homepage showcase card. Credibility-first: the REAL product still (the loop's
@@ -41,18 +42,23 @@ export default function ShowcaseCard({
       className="group relative block overflow-hidden rounded-2xl border border-line bg-surface transition-colors duration-500 hover:border-line-strong"
       style={{ ["--accent" as string]: study.accent }}
     >
-      {/* media: 9:16, poster = loop frame 0 (no jump on hover) */}
+      {/* media: 9:16, poster = loop frame 0 (no jump on hover). Falls back to a
+          branded gradient cover for works without a real showcase asset yet. */}
       <div className="relative aspect-[9/16] w-full overflow-hidden">
-        <video
-          ref={videoRef}
-          className="absolute inset-0 size-full object-cover"
-          poster={`/showcase/${study.slug}.webp`}
-          src={`/showcase/${study.slug}.webm`}
-          muted
-          loop
-          playsInline
-          preload="none"
-        />
+        {study.media ? (
+          <video
+            ref={videoRef}
+            className="absolute inset-0 size-full object-cover"
+            poster={`/showcase/${study.slug}.webp`}
+            src={`/showcase/${study.slug}.webm`}
+            muted
+            loop
+            playsInline
+            preload="none"
+          />
+        ) : (
+          <GradientCover accent={study.accent} className="absolute inset-0" />
+        )}
         {/* readability scrim */}
         <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/20" />
 

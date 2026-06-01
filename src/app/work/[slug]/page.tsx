@@ -6,6 +6,7 @@ import { site } from "@/lib/site";
 import Reveal from "@/components/motion/Reveal";
 import AnimatedHeading from "@/components/motion/AnimatedHeading";
 import Button from "@/components/ui/Button";
+import GradientCover from "@/components/work/GradientCover";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -83,6 +84,19 @@ export default async function CaseStudyPage({ params }: Params) {
           )}
         </div>
       </header>
+
+      {/* Cover — branded gradient band fills the visual gap until real covers
+          ship; tinted per project accent. */}
+      <section className="mx-auto max-w-[1400px] px-5 md:px-8">
+        <Reveal className="overflow-hidden rounded-2xl border border-line">
+          <div className="aspect-[21/9] w-full">
+            <GradientCover
+              accent={study.accent}
+              label={`${study.category} · ${study.year}`}
+            />
+          </div>
+        </Reveal>
+      </section>
 
       {/* Meta grid */}
       <section className="mx-auto max-w-[1400px] px-5 md:px-8">
