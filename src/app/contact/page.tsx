@@ -66,6 +66,9 @@ export default function ContactPage() {
               </div>
               <p className="mt-3 text-sm text-muted">{site.availability}</p>
               <p className="mt-1 text-sm text-muted">{site.location}</p>
+              <p className="mt-3 border-t border-line pt-3 text-sm text-fg/80">
+                {site.responseTime}
+              </p>
             </div>
           </Reveal>
         </aside>

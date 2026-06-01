@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { site } from "@/lib/site";
-import { budgets, topics } from "@/data/contact";
+import { scopes, topics } from "@/data/contact";
 
 /**
  * No backend yet: composes a prefilled mailto so the message lands in the
@@ -10,7 +10,7 @@ import { budgets, topics } from "@/data/contact";
  */
 export default function ContactForm() {
   const [topic, setTopic] = useState(topics[0]);
-  const [budget, setBudget] = useState(budgets[1]);
+  const [scope, setScope] = useState(scopes[1]);
   const [sent, setSent] = useState(false);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -20,7 +20,7 @@ export default function ContactForm() {
     const email = String(f.get("email") || "");
     const message = String(f.get("message") || "");
     const subject = `Yeni proje — ${topic} (${name})`;
-    const body = `İsim: ${name}\nE-posta: ${email}\nKonu: ${topic}\nBütçe: ${budget}\n\n${message}`;
+    const body = `İsim: ${name}\nE-posta: ${email}\nKonu: ${topic}\nKapsam: ${scope}\n\n${message}`;
     window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(body)}`;
@@ -68,12 +68,12 @@ export default function ContactForm() {
 
       <div className="flex flex-col gap-3">
         <span className="font-mono text-xs uppercase tracking-widest text-muted">
-          Bütçe
+          Proje kapsamı
         </span>
         <div className="flex flex-wrap gap-2">
-          {budgets.map((b) => (
-            <Chip key={b} active={budget === b} onClick={() => setBudget(b)}>
-              {b}
+          {scopes.map((s) => (
+            <Chip key={s} active={scope === s} onClick={() => setScope(s)}>
+              {s}
             </Chip>
           ))}
         </div>

@@ -1,3 +1,4 @@
 /** Contact form options. */
-export const budgets = ["< 30k₺", "30–75k₺", "75–150k₺", "150k₺ +"];
 export const topics = ["Web Design", "Full-Stack", "Vibe Coding", "Diğer"];
+// Qualitative project scope (replaces ₺ budget tiers — premium-friendly, still qualifies the lead).
+export const scopes = ["Tek sayfa", "Kurumsal site", "Ürün / uygulama", "Emin değilim"];

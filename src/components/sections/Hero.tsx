@@ -4,7 +4,6 @@ import { useRef } from "react";
 import HeroBackground from "@/components/three/HeroBackground";
 import Button from "@/components/ui/Button";
 import PulseDot from "@/components/ui/PulseDot";
-import { Spark } from "@/components/ui/Logo";
 import { site } from "@/lib/site";
 import { useGSAP } from "@/hooks/useGSAP";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
@@ -91,10 +90,8 @@ export default function Hero() {
 
         <div data-hero-fade className="mt-10 flex flex-wrap items-center gap-4">
           <Button href="/work">Seçili işler</Button>
-          <Button href="/contact" variant="ghost" arrow={false}>
-            <span className="flex items-center gap-2">
-              <Spark className="size-4" /> Birlikte çalışalım
-            </span>
+          <Button href="/contact" variant="ghost">
+            Birlikte çalışalım
           </Button>
         </div>
       </div>

@@ -17,6 +17,8 @@ export const site = {
   email: "eaxeadesign@gmail.com",
   location: "Ankara · Remote / Worldwide",
   availability: "2026 için yeni proje alımı açık",
+  // Client-facing response-time promise — adjust to your real cadence.
+  responseTime: "Mesajlara genelde 48 saat içinde dönüş yaparım.",
   socials: [
     { label: "GitHub", handle: "EAXEA", href: "https://github.com/EAXEA" },
     {
