@@ -3,6 +3,7 @@ import { site } from "@/lib/site";
 import PageHeader from "@/components/ui/PageHeader";
 import Reveal from "@/components/motion/Reveal";
 import ContactForm from "@/components/sections/ContactForm";
+import PulseDot from "@/components/ui/PulseDot";
 
 export const metadata: Metadata = {
   title: "İletişim",
@@ -58,10 +59,7 @@ export default function ContactPage() {
           <Reveal delay={0.1}>
             <div className="glass rounded-2xl p-6">
               <div className="flex items-center gap-2">
-                <span className="relative flex size-2">
-                  <span className="absolute inline-flex size-full animate-ping rounded-full bg-ember opacity-60" />
-                  <span className="relative inline-flex size-2 rounded-full bg-ember" />
-                </span>
+                <PulseDot />
                 <span className="font-mono text-xs uppercase tracking-widest text-fg">
                   Müsaitlik
                 </span>

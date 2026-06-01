@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import HeroBackground from "@/components/three/HeroBackground";
 import Button from "@/components/ui/Button";
+import PulseDot from "@/components/ui/PulseDot";
 import { Spark } from "@/components/ui/Logo";
 import { site } from "@/lib/site";
 import { useGSAP } from "@/hooks/useGSAP";
@@ -63,10 +64,7 @@ export default function Hero() {
           data-hero-fade
           className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-line bg-surface/40 px-4 py-2 backdrop-blur"
         >
-          <span className="relative flex size-2">
-            <span className="absolute inline-flex size-full animate-ping rounded-full bg-ember opacity-60" />
-            <span className="relative inline-flex size-2 rounded-full bg-ember" />
-          </span>
+          <PulseDot />
           <span className="font-mono text-xs uppercase tracking-widest text-muted">
             {site.availability}
           </span>
