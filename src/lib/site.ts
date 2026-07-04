@@ -12,8 +12,8 @@ export const site = {
   positioning: "Web design · Full-stack · Video & film · Hızlı MVP",
   description:
     "EAXEA, premium ve motion-first dijital deneyimler üreten bağımsız bir creative development stüdyosu. Web tasarımı, full-stack geliştirme, AI destekli vibe coding ve belgeselden kurumsal filme uzanan video prodüksiyonu tek elde birleşir.",
-  // Public URL — update when the domain is live.
-  url: "https://eaxea.studio",
+  // Public URL — swap to the custom domain when it's purchased.
+  url: "https://eaxea-site.vercel.app",
   locale: "tr_TR",
   email: "scsenocak@gmail.com",
   location: "Ankara · Remote",
