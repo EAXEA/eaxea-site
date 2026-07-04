@@ -63,7 +63,7 @@ export const work: CaseStudy[] = [
     metrics: [
       { label: "Satıştaki eser", value: "56" },
       { label: "Sürüm", value: "v2.0" },
-      { label: "Görsel optimizasyonu", value: "↓84%" },
+      { label: "Görsel boyutu (kaynağa göre)", value: "↓84%" },
     ],
     accent: "#FF5C28",
     featured: true,
@@ -291,7 +291,7 @@ export const work: CaseStudy[] = [
     summary:
       "Bir medikal distribütörün katalog sitesini iki dilli, CMS'e hazır bir platforma taşıyan yeniden inşa.",
     intro:
-      "Ankara merkezli bir medikal cihaz distribütörü için katalog sitesinin yeniden inşası. Mevcut sitenin tamamını tarayıp yapılandırılmış envantere çevirdim; tek kod tabanında hem statik hem CMS'li paketi destekleyen iki dilli bir Next.js iskeleti ayağa kaldırdım. Proje devam eden bir süreçte olduğu için müşteri adı şimdilik saklı.",
+      "Bir medikal cihaz distribütörü için katalog sitesinin yeniden inşası. Mevcut sitenin tamamını tarayıp yapılandırılmış envantere çevirdim; tek kod tabanında hem statik hem CMS'li paketi destekleyen iki dilli bir Next.js iskeleti ayağa kaldırdım. Proje devam eden bir süreçte olduğu için müşteri adı şimdilik saklı.",
     challenge:
       "Yıllar içinde organik büyümüş bir katalog sitesini SEO kaybetmeden modern bir mimariye taşımak; müşterinin paket kararından bağımsız ilerleyebilen bir teknik temel kurmak.",
     approach: [

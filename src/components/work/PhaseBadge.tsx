@@ -29,7 +29,7 @@ export default function PhaseBadge({
           style={{ background: ongoing ? "var(--color-ember)" : "#34D399" }}
         />
       </span>
-      {ongoing ? "Devam ediyor" : "Tamamlandı"}
+      {ongoing ? "Aktif geliştirme" : "Tamamlandı"}
     </span>
   );
 }

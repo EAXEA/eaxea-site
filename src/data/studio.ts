@@ -29,7 +29,7 @@ export const productionCredits: Credit[] = [
     title: "Oyun",
     tag: "Belgesel dizi · HBO Max",
     year: "2022",
-    note: "Video oyunlarının gelişimini konu alan yapımda kamera ve post-prodüksiyon katkısı.",
+    note: "Video oyunlarının gelişimini konu alan yapımın set ve post-prodüksiyon ekibinde yer aldım.",
     href: "https://youtu.be/XOHLhHddhSE",
   },
   {
