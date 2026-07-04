@@ -54,4 +54,19 @@ export const services: Service[] = [
     ],
     accent: "var(--color-cyan)",
   },
+  {
+    id: "video-film",
+    index: "04",
+    title: "Video & Film",
+    tagline: "Belgeselden kurumsal filme post-prodüksiyon",
+    description:
+      "Web'den önce kurgu masasındaydım: belgesel, kurumsal video ve tanıtım içerikleri. Adobe Premiere ile kurgu, ses ve renk; Blender ile animasyon ve teknik overlay. Hikayeyi hangi formatta olursa olsun ekrana taşırım.",
+    deliverables: [
+      "Belgesel & kurumsal video kurgusu",
+      "Premiere post-prodüksiyon (kurgu · ses · renk)",
+      "Tanıtım & reklam içerikleri",
+      "Animasyon & motion overlay (Blender)",
+    ],
+    accent: "var(--color-magenta)",
+  },
 ];

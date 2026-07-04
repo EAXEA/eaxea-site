@@ -11,7 +11,14 @@ export default function JsonLd() {
     email: site.email,
     founder: { "@type": "Person", name: site.founder },
     areaServed: "Worldwide",
-    knowsAbout: ["Web Design", "Full-Stack Development", "Motion Design", "Vibe Coding"],
+    knowsAbout: [
+      "Web Design",
+      "Full-Stack Development",
+      "Motion Design",
+      "Vibe Coding",
+      "Video Production",
+      "Video Editing (Adobe Premiere)",
+    ],
     sameAs: site.socials
       .filter((s) => s.href.startsWith("http"))
       .map((s) => s.href),

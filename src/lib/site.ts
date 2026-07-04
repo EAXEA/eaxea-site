@@ -6,11 +6,12 @@ export const site = {
   founder: "Cihan Şenocak",
   role: "Creative Developer",
   // Hero one-liner. Bold but readable.
-  tagline: "Dijital deneyimler tasarlayıp koda döken bağımsız creative developer.",
+  tagline:
+    "Dijital deneyimleri tasarlayan, kodlayan ve kurgulayan bağımsız creative developer.",
   // Positioning line used in meta + footer.
-  positioning: "Web design · Full-stack · Vibe coding",
+  positioning: "Web design · Full-stack · Video & film · Vibe coding",
   description:
-    "EAXEA, premium ve motion-first web deneyimleri üreten bağımsız bir creative development stüdyosu. Web tasarımı, full-stack geliştirme ve AI destekli vibe coding ile markaları dijital sahneye taşır.",
+    "EAXEA, premium ve motion-first dijital deneyimler üreten bağımsız bir creative development stüdyosu. Web tasarımı, full-stack geliştirme, AI destekli vibe coding ve belgeselden kurumsal filme uzanan video prodüksiyonu tek elde birleşir.",
   // Public URL — update when the domain is live.
   url: "https://eaxea.studio",
   locale: "tr_TR",

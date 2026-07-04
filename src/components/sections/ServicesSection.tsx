@@ -13,17 +13,17 @@ export default function ServicesSection() {
           <p className="eyebrow mb-5">[ Hizmetler ]</p>
           <AnimatedHeading
             as="h2"
-            text="Üç şey, çok iyi."
+            text="Dört şey, çok iyi."
             className="text-[clamp(2.2rem,6vw,4.5rem)] uppercase"
           />
         </div>
         <p className="max-w-sm text-muted">
-          Fikirden lansmana kadar tek elden: tasarım dili, mühendislik ve
-          hareket sistemi.
+          Fikirden lansmana kadar tek elden: tasarım dili, mühendislik,
+          hareket ve görüntü.
         </p>
       </div>
 
-      <Reveal stagger className="grid gap-px overflow-hidden rounded-3xl border border-line bg-line md:grid-cols-3">
+      <Reveal stagger className="grid gap-px overflow-hidden rounded-3xl border border-line bg-line md:grid-cols-2">
         {services.map((s) => (
           <article
             key={s.id}

@@ -6,12 +6,12 @@ import AnimatedHeading from "@/components/motion/AnimatedHeading";
 import ServicesSection from "@/components/sections/ServicesSection";
 import ProcessSection from "@/components/sections/ProcessSection";
 import { Spark } from "@/components/ui/Logo";
-import { capabilities, principles } from "@/data/studio";
+import { capabilities, principles, productionCredits } from "@/data/studio";
 
 export const metadata: Metadata = {
   title: "Stüdyo",
   description:
-    "EAXEA — premium, motion-first web deneyimleri üreten bağımsız bir creative development stüdyosu. Web design, full-stack ve vibe coding.",
+    "EAXEA — premium, motion-first dijital deneyimler üreten bağımsız bir creative development stüdyosu. Web design, full-stack, vibe coding ve video prodüksiyon.",
 };
 
 export default function StudioPage() {
@@ -84,6 +84,47 @@ export default function StudioPage() {
             ))}
           </Reveal>
         </div>
+      </section>
+
+      {/* Production credits — proof behind the Video & Film service */}
+      <section className="mx-auto max-w-[1400px] px-5 py-24 md:px-8 md:py-32">
+        <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="eyebrow mb-5">[ Kamera arkası ]</p>
+            <AnimatedHeading
+              as="h2"
+              text="Ekran geçmişi"
+              className="text-[clamp(2.2rem,6vw,4.5rem)] uppercase"
+            />
+          </div>
+          <p className="max-w-sm text-muted">
+            {"Web'den önce kurgu masası vardı. Belgeselden HBO Max yapımına, kurumsal filmden teknik animasyona seçili prodüksiyon işleri."}
+          </p>
+        </div>
+
+        <Reveal stagger className="flex flex-col">
+          {productionCredits.map((c) => (
+            <div
+              key={c.title}
+              data-reveal-item
+              className="grid gap-2 border-t border-line py-6 md:grid-cols-12 md:items-baseline md:gap-8"
+            >
+              <span className="font-mono text-xs text-faint md:col-span-1">
+                {c.year}
+              </span>
+              <h3 className="display text-xl uppercase md:col-span-3 md:text-2xl">
+                {c.title}
+              </h3>
+              <span className="font-mono text-[0.65rem] uppercase tracking-widest text-magenta md:col-span-3">
+                {c.tag}
+              </span>
+              <p className="text-sm leading-relaxed text-muted md:col-span-5">
+                {c.note}
+              </p>
+            </div>
+          ))}
+          <div className="border-t border-line" />
+        </Reveal>
       </section>
 
       <ServicesSection />

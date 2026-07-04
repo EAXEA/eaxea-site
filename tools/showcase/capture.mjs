@@ -4,7 +4,7 @@
 // (hero hold -> ease-glide ~2.3s per stop -> settle ~0.9s), trim to last CAPDUR s.
 import { chromium } from "playwright-core";
 import { execFileSync } from "node:child_process";
-import { mkdirSync, readdirSync, renameSync, rmSync, statSync } from "node:fs";
+import { mkdirSync, readdirSync, rmSync, statSync } from "node:fs";
 import { join, resolve } from "node:path";
 
 const [url, slug, outDirArg] = process.argv.slice(2);
