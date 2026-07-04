@@ -10,7 +10,7 @@ export const processSteps: ProcessStep[] = [
   {
     n: "02",
     title: "Tasarım",
-    body: "Önce iskelet, sonra görsel dil ve motion sistemi. Her bölüm bir sahne gibi kurgulanır.",
+    body: "Önce iskelet, sonra görsel dil ve motion sistemi. Her bölüm tek tek kurgulanır.",
   },
   {
     n: "03",

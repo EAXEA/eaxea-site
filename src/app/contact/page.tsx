@@ -16,7 +16,7 @@ export default function ContactPage() {
       <PageHeader
         eyebrow="[ İletişim ]"
         title="Konuşalım"
-        intro="Bir fikrin, bir markan ya da yarım kalmış bir projen mi var? Birkaç satır yaz, sahneye nasıl çıkaracağımızı birlikte düşünelim."
+        intro="Bir fikrin, bir markan ya da yarım kalmış bir projen mi var? Birkaç satır yaz, nasıl hayata geçireceğimizi birlikte düşünelim."
       />
 
       <section className="mx-auto grid max-w-[1400px] gap-16 px-5 pb-32 md:grid-cols-12 md:px-8">

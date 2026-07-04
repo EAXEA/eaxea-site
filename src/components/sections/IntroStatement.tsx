@@ -5,7 +5,7 @@ import { useGSAP } from "@/hooks/useGSAP";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
 
 const STATEMENT =
-  "Standart ajans işi yapmam. Markaları bir dijital sahneye taşıyorum: tasarım, kod ve hareketin tek bir sinematik dile dönüştüğü, hızlı ve okunaklı deneyimler.";
+  "Standart ajans işi yapmam. Tasarım, kod ve hareketi tek bir sinematik dilde birleştiririm: hızlı, okunaklı ve hatırda kalan deneyimler.";
 
 /**
  * Scroll-scrubbed manifesto: words brighten from faint to full as the section

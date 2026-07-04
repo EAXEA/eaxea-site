@@ -9,7 +9,6 @@ export type CaseStudy = {
   role: string[];
   stack: string[];
   url?: string;
-  repo?: string;
   /** live status shown as a badge — e.g. "Yayında", "Konsept", "Tasarım aşamasında" */
   status: string;
   /** completion state — "done" = iş bitti/teslim edildi, "ongoing" = iş sürüyor */
@@ -41,7 +40,6 @@ export const work: CaseStudy[] = [
     role: ["Art Direction", "Design", "Full-Stack"],
     stack: ["Next.js 16", "Tailwind 4", "Supabase + Drizzle", "iyzico", "Vercel"],
     url: "https://www.maiamari.art",
-    repo: "https://github.com/EAXEA/maimari-studio",
     status: "Yayında",
     phase: "ongoing",
     summary:
@@ -63,9 +61,9 @@ export const work: CaseStudy[] = [
       "Paylaşıldığında öne çıkan otomatik OG görselleri",
     ],
     metrics: [
-      { label: "Lighthouse", value: "98+" },
-      { label: "Build", value: "Next.js 16" },
-      { label: "Teslim", value: "Production" },
+      { label: "Satıştaki eser", value: "56" },
+      { label: "Sürüm", value: "v2.0" },
+      { label: "Görsel optimizasyonu", value: "↓84%" },
     ],
     accent: "#FF5C28",
     featured: true,
@@ -74,13 +72,12 @@ export const work: CaseStudy[] = [
   {
     slug: "iklim-icin-ogretmenler",
     title: "İklim için Öğretmenler",
-    client: "Mesleki Gelişim Programı",
+    client: "İklim için Öğretmenler Programı",
     category: "Platform · Education",
     year: "2026",
     role: ["Design", "Full-Stack"],
     stack: ["Web", "Content System", "Vercel"],
     url: "https://iklimicinogret.vercel.app",
-    repo: "https://github.com/EAXEA/iklimicinogret",
     status: "Yayında",
     phase: "done",
     summary:
@@ -99,11 +96,7 @@ export const work: CaseStudy[] = [
       "Erişilebilir ve mobil uyumlu deneyim",
       "Kolay güncellenebilir içerik yapısı",
     ],
-    metrics: [
-      { label: "Odak", value: "Erişim" },
-      { label: "Tip", value: "Platform" },
-      { label: "Teslim", value: "Live" },
-    ],
+    metrics: [],
     accent: "#34D399",
     featured: true,
     media: true,
@@ -117,7 +110,6 @@ export const work: CaseStudy[] = [
     role: ["Design", "Full-Stack", "SEO & A11y"],
     stack: ["Next.js 16", "Tailwind 4", "shadcn/ui", "Framer Motion"],
     url: "https://fixgo-mu.vercel.app",
-    repo: "https://github.com/06fixgo/fixgo",
     status: "Yayında",
     phase: "ongoing",
     summary:
@@ -138,8 +130,8 @@ export const work: CaseStudy[] = [
       "8 bölümlük, talep formuna akan dönüşüm kurgusu",
     ],
     metrics: [
-      { label: "LCP", value: "144ms" },
-      { label: "CLS", value: "0.011" },
+      { label: "LCP (lab ölçümü)", value: "144ms" },
+      { label: "CLS (lab ölçümü)", value: "0.011" },
       { label: "Kurgu", value: "8 bölüm" },
     ],
     accent: "#2F7DFF",
@@ -149,12 +141,11 @@ export const work: CaseStudy[] = [
   {
     slug: "bass-assistant",
     title: "Bass Assistant",
-    client: "Açık kaynak / Ürün",
+    client: "Kendi ürünüm · açık kaynak",
     category: "Product · Chrome Extension",
     year: "2026",
     role: ["Product", "Full-Stack", "Vibe Coding"],
     stack: ["JavaScript (MV3)", "SVG UI", "AI Workflow"],
-    repo: "https://github.com/EAXEA/bass-assistant-v5.6.0",
     status: "Ürün",
     phase: "ongoing",
     summary:
@@ -175,9 +166,9 @@ export const work: CaseStudy[] = [
       "Benzer-ton keşfi ve puanlamayla büyüyen kişisel ton kütüphanesi",
     ],
     metrics: [
-      { label: "Platform", value: "Chrome" },
       { label: "Sürüm", value: "v5.6+" },
-      { label: "Tip", value: "Product" },
+      { label: "i18n anahtarı", value: "157" },
+      { label: "Harici bağımlılık", value: "0" },
     ],
     accent: "#FF2D9C",
     featured: true,
@@ -186,7 +177,7 @@ export const work: CaseStudy[] = [
   {
     slug: "ayneninen",
     title: "aynen.",
-    client: "@ayneninen — kendi içerik markası",
+    client: "Kendi içerik markam · @ayneninen",
     category: "Data Brand · Content Engine",
     year: "2026",
     role: ["Design", "Data", "Motion"],
@@ -263,7 +254,6 @@ export const work: CaseStudy[] = [
     year: "2026",
     role: ["Design", "Full-Stack", "Motion"],
     stack: ["Next.js 14", "Glassmorphism", "Adaptive Dark"],
-    repo: "https://github.com/EAXEA/vetvital",
     status: "Konsept · onay sürecinde",
     phase: "ongoing",
     summary:
@@ -283,31 +273,27 @@ export const work: CaseStudy[] = [
       "Cihazlar arası tutarlı, erişilebilir deneyim önerisi",
       "Randevu için net ve hızlı bir dönüşüm akışı kurgusu",
     ],
-    metrics: [
-      { label: "Tema", value: "Adaptive" },
-      { label: "Sistem", value: "Apple HIG" },
-      { label: "Durum", value: "Konsept" },
-    ],
+    metrics: [],
     accent: "#2FE0FF",
     featured: true,
     media: true,
   },
   {
-    slug: "meta-medikal",
-    title: "Meta Medikal",
-    client: "Meta Medikal Ltd. Şti.",
+    slug: "medikal-katalog",
+    title: "Medikal Katalog",
+    client: "Medikal cihaz distribütörü · isim süreç gereği saklı",
     category: "Rebuild · Catalog Platform",
     year: "2026",
     role: ["Keşif & Veri", "Full-Stack", "SEO/i18n"],
     stack: ["Next.js 16", "next-intl", "Tailwind 4", "ContentSource → Payload"],
-    status: "Teklif aşamasında",
+    status: "Keşif tamamlandı",
     phase: "ongoing",
     summary:
-      "Bir medikal distribütörün eski katalog sitesini iki dilli, CMS'e hazır bir platforma taşıyan yeniden inşa.",
+      "Bir medikal distribütörün katalog sitesini iki dilli, CMS'e hazır bir platforma taşıyan yeniden inşa.",
     intro:
-      "Meta Medikal, Ankara merkezli bir medikal cihaz distribütörü. Eski katalog sitesinin tamamını tarayıp yapılandırılmış envantere çevirdim; tek kod tabanında hem statik hem CMS'li paketi destekleyen iki dilli bir Next.js iskeleti ayağa kaldırdım. Proje şu an teklif aşamasında.",
+      "Ankara merkezli bir medikal cihaz distribütörü için katalog sitesinin yeniden inşası. Mevcut sitenin tamamını tarayıp yapılandırılmış envantere çevirdim; tek kod tabanında hem statik hem CMS'li paketi destekleyen iki dilli bir Next.js iskeleti ayağa kaldırdım. Proje devam eden bir süreçte olduğu için müşteri adı şimdilik saklı.",
     challenge:
-      "Yıllar içinde büyümüş, ikiz slug'lı ve dağınık bir katalog sitesini SEO kaybetmeden modern bir mimariye taşımak; müşterinin paket kararından bağımsız ilerleyebilen bir teknik temel kurmak.",
+      "Yıllar içinde organik büyümüş bir katalog sitesini SEO kaybetmeden modern bir mimariye taşımak; müşterinin paket kararından bağımsız ilerleyebilen bir teknik temel kurmak.",
     approach: [
       "Eski sitenin 118 URL'ini tarayıp 43 ürün, 10 marka ve 220 görseli yapılandırılmış envantere dönüştürdüm",
       "Frontend'i veri kaynağından soyutladım: ContentSource arayüzüyle statik JSON'dan Payload CMS'e rota kodu değişmeden geçilebiliyor",
@@ -334,7 +320,6 @@ export const work: CaseStudy[] = [
     year: "2026",
     role: ["Art Direction", "Design", "Motion"],
     stack: ["Single-Page", "Scroll Motion", "Cinematic UI"],
-    repo: "https://github.com/EAXEA/ancyra-site",
     status: "Tasarım aşamasında",
     phase: "ongoing",
     summary:
@@ -344,20 +329,16 @@ export const work: CaseStudy[] = [
     challenge:
       "Görsel olmayan bir lansman aşamasında bile sinematik ve iddialı durmak; içeriği değil, tonu öne çıkarmak.",
     approach: [
-      "Tek sayfada sahne sahne ilerleyen sinematik bir akış kurdum",
-      "Scroll'u kamera hareketi gibi kullanan geçişler tasarladım",
-      "Tipografiyi başlı başına bir görsel öğeye dönüştürdüm",
+      "Tek sayfada sahne sahne ilerleyen sinematik bir akış kurguluyorum",
+      "Scroll'u kamera hareketi gibi kullanan geçişler tasarlıyorum",
+      "Tipografiyi başlı başına bir görsel öğeye dönüştürüyorum",
     ],
     outcome: [
-      "Stüdyonun karakterini ilk saniyede veren güçlü bir izlenim",
-      "Minimum içerikle maksimum atmosfer",
-      "İçerik geldikçe büyüyebilen esnek bir iskelet",
+      "Hedef: stüdyonun karakterini ilk saniyede veren bir açılış",
+      "Hedef: minimum içerikle maksimum atmosfer",
+      "Hedef: içerik geldikçe büyüyebilen esnek bir iskelet",
     ],
-    metrics: [
-      { label: "Format", value: "Single-page" },
-      { label: "His", value: "Cinematic" },
-      { label: "Durum", value: "Tasarımda" },
-    ],
+    metrics: [],
     accent: "#6E5BFF",
     featured: true,
   },

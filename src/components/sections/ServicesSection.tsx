@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { services } from "@/data/services";
 import Reveal from "@/components/motion/Reveal";
 import AnimatedHeading from "@/components/motion/AnimatedHeading";
@@ -63,6 +64,14 @@ export default function ServicesSection() {
                 </li>
               ))}
             </ul>
+
+            <Link
+              href={s.proof.href}
+              className="inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-fg"
+              style={{ color: s.accent }}
+            >
+              {s.proof.label} <span aria-hidden>→</span>
+            </Link>
           </article>
         ))}
       </Reveal>

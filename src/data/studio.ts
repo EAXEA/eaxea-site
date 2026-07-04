@@ -14,7 +14,14 @@ export const capabilities = [
   "Animasyon / Blender",
 ];
 
-export type Credit = { title: string; tag: string; year: string; note: string };
+export type Credit = {
+  title: string;
+  tag: string;
+  year: string;
+  note: string;
+  /** public link that verifies the credit (watch page / trailer) */
+  href?: string;
+};
 
 /** Screen/production history — proof for the Video & Film service. */
 export const productionCredits: Credit[] = [
@@ -23,24 +30,28 @@ export const productionCredits: Credit[] = [
     tag: "Belgesel dizi · HBO Max",
     year: "2022",
     note: "Video oyunlarının gelişimini konu alan yapımda kamera ve post-prodüksiyon katkısı.",
+    href: "https://youtu.be/XOHLhHddhSE",
   },
   {
     title: "Duvarların Ardında",
     tag: "Belgesel · Kurgu, montaj & ses",
     year: "2022",
     note: "Ankara'daki diplomatik misyonların tarihine odaklanan belgesel; kurgu, montaj ve ses tasarımını bağımsız yürüttüm. Basında haber konusu oldu.",
+    href: "https://www.youtube.com/watch?v=6IHz2gKnA7U",
   },
   {
     title: "İki Teker Özgürlük",
     tag: "Belgesel · Kurgu & montaj",
     year: "2022",
     note: "Üç kişilik ekiple üretilen bisiklet belgeseli; kurgu ve montaj bende.",
+    href: "https://www.youtube.com/watch?v=Ue3SB1CwMcQ",
   },
   {
     title: "European Union in Turkey",
     tag: "Kurumsal video",
     year: "2021",
     note: "Suriyeli çocukların eğitimi temalı kurumsal film; kurgu, montaj ve çok dilli içerik süreci.",
+    href: "https://fb.watch/7GEahUMqLo",
   },
   {
     title: "Ceyhan Propan Terminali",

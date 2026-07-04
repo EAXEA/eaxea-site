@@ -14,7 +14,7 @@ export default function NotFound() {
           Bu sahne henüz kurulmamış. Aradığın sayfa taşınmış ya da hiç var
           olmamış olabilir.
         </p>
-        <Button href="/">Ana sahneye dön</Button>
+        <Button href="/">Ana sayfaya dön</Button>
       </div>
     </section>
   );

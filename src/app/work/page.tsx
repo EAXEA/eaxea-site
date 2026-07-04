@@ -15,7 +15,7 @@ export default function WorkPage() {
       <PageHeader
         eyebrow="[ Seçili işler ]"
         title="İşler"
-        intro="Marka siteleri, ürün arayüzleri ve deneysel web deneyimleri. Her biri kendi sahnesi olan, tasarım ve kodun birlikte düşünüldüğü projeler."
+        intro="Marka siteleri, ürün arayüzleri ve içerik sistemleri. Her biri kendi karakteri olan, tasarım ve kodun birlikte düşünüldüğü projeler."
       />
 
       <section className="mx-auto max-w-[1400px] px-5 pb-32 md:px-8">

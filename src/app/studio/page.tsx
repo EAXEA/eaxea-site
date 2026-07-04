@@ -30,7 +30,7 @@ export default function StudioPage() {
             Ben {site.founder}. Tasarımla kodun, sanatla mühendisliğin kesiştiği
             yerde çalışıyorum.{" "}
             <span className="text-muted">
-              {site.name}, markaları dijital sahneye taşıyan bağımsız bir
+              {site.name}, markaları dijitalde öne çıkaran bağımsız bir
               creative development pratiği. Fikirden çalışan, hızlı ve hatırda
               kalan ürünlere kadar tek elden ilerlerim.
             </span>
@@ -87,7 +87,10 @@ export default function StudioPage() {
       </section>
 
       {/* Production credits — proof behind the Video & Film service */}
-      <section className="mx-auto max-w-[1400px] px-5 py-24 md:px-8 md:py-32">
+      <section
+        id="ekran-gecmisi"
+        className="mx-auto max-w-[1400px] scroll-mt-24 px-5 py-24 md:px-8 md:py-32"
+      >
         <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="eyebrow mb-5">[ Kamera arkası ]</p>
@@ -118,9 +121,21 @@ export default function StudioPage() {
               <span className="font-mono text-[0.65rem] uppercase tracking-widest text-magenta md:col-span-3">
                 {c.tag}
               </span>
-              <p className="text-sm leading-relaxed text-muted md:col-span-5">
+              <p className="text-sm leading-relaxed text-muted md:col-span-4">
                 {c.note}
               </p>
+              <span className="md:col-span-1 md:text-right">
+                {c.href && (
+                  <a
+                    href={c.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-sm text-muted transition-colors hover:text-fg"
+                  >
+                    İzle <span aria-hidden>↗</span>
+                  </a>
+                )}
+              </span>
             </div>
           ))}
           <div className="border-t border-line" />

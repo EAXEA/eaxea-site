@@ -2,7 +2,7 @@
 export const topics = [
   "Web Design",
   "Full-Stack",
-  "Vibe Coding",
+  "Hızlı MVP / Prototip",
   "Video / Kurgu",
   "Diğer",
 ];

@@ -3,7 +3,7 @@ import Marquee from "@/components/motion/Marquee";
 const items = [
   "Web Design",
   "Full-Stack",
-  "Vibe Coding",
+  "Hızlı MVP",
   "Video & Film",
   "Motion",
   "Animasyon",

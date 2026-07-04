@@ -108,7 +108,8 @@ export default async function CaseStudyPage({ params }: Params) {
         </Reveal>
       </section>
 
-      {/* Metrics */}
+      {/* Metrics — only when the work has real numbers to show */}
+      {study.metrics.length > 0 && (
       <section className="mx-auto max-w-[1400px] px-5 py-20 md:px-8 md:py-28">
         <Reveal stagger className="grid grid-cols-3 gap-6">
           {study.metrics.map((m) => (
@@ -130,6 +131,7 @@ export default async function CaseStudyPage({ params }: Params) {
           ))}
         </Reveal>
       </section>
+      )}
 
       {/* Body: challenge / approach / outcome */}
       <section className="mx-auto grid max-w-[1400px] gap-16 px-5 pb-28 md:grid-cols-12 md:px-8">
