@@ -6,7 +6,8 @@ import { site } from "@/lib/site";
 import Reveal from "@/components/motion/Reveal";
 import AnimatedHeading from "@/components/motion/AnimatedHeading";
 import Button from "@/components/ui/Button";
-import GradientCover from "@/components/work/GradientCover";
+import CaseCover from "@/components/work/CaseCover";
+import PhaseBadge from "@/components/work/PhaseBadge";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -63,6 +64,7 @@ export default async function CaseStudyPage({ params }: Params) {
             >
               {study.status}
             </span>
+            <PhaseBadge phase={study.phase} />
           </div>
           <AnimatedHeading
             as="h1"
@@ -85,16 +87,11 @@ export default async function CaseStudyPage({ params }: Params) {
         </div>
       </header>
 
-      {/* Cover — branded gradient band fills the visual gap until real covers
-          ship; tinted per project accent. */}
+      {/* Cover — real product capture floating on the branded gradient band
+          when media exists; plain gradient otherwise. */}
       <section className="mx-auto max-w-[1400px] px-5 md:px-8">
         <Reveal className="overflow-hidden rounded-2xl border border-line">
-          <div className="aspect-[21/9] w-full">
-            <GradientCover
-              accent={study.accent}
-              label={`${study.category} · ${study.year}`}
-            />
-          </div>
+          <CaseCover study={study} />
         </Reveal>
       </section>
 

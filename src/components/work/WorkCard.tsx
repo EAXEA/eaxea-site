@@ -51,6 +51,9 @@ export default function WorkCard({
           >
             {study.status}
           </span>
+          <span className="font-mono text-[0.6rem] uppercase tracking-widest text-faint">
+            {study.phase === "ongoing" ? "Devam ediyor" : "Tamamlandı"}
+          </span>
         </div>
 
         <span
@@ -73,7 +76,8 @@ export default function WorkCard({
           style={{ background: study.accent }}
         />
         <span className="text-xs text-muted">
-          {study.category} · {study.status}
+          {study.category} · {study.status} ·{" "}
+          {study.phase === "ongoing" ? "Devam ediyor" : "Tamamlandı"}
         </span>
       </div>
     </Link>
