@@ -27,6 +27,9 @@ export type CaseStudy = {
   /** true when a real showcase video/poster exists at /showcase/{slug}.*;
    *  when false the cards fall back to a branded GradientCover. */
   media?: boolean;
+  /** true when a desktop capture exists at /showcase/{slug}-wide.webp;
+   *  enables the desktop+phone duo on the case cover. */
+  mediaWide?: boolean;
 };
 
 // Ordered proof-first: live products lead, concept/in-progress work trails.
@@ -68,6 +71,7 @@ export const work: CaseStudy[] = [
     accent: "#FF5C28",
     featured: true,
     media: true,
+    mediaWide: true,
   },
   {
     slug: "iklim-icin-ogretmenler",
@@ -100,6 +104,7 @@ export const work: CaseStudy[] = [
     accent: "#34D399",
     featured: true,
     media: true,
+    mediaWide: true,
   },
   {
     slug: "fixgo",
@@ -137,6 +142,7 @@ export const work: CaseStudy[] = [
     accent: "#2F7DFF",
     featured: true,
     media: true,
+    mediaWide: true,
   },
   {
     slug: "bass-assistant",
@@ -245,6 +251,7 @@ export const work: CaseStudy[] = [
     accent: "#D94141",
     featured: true,
     media: true,
+    mediaWide: true,
   },
   {
     slug: "vetvital",
@@ -277,6 +284,7 @@ export const work: CaseStudy[] = [
     accent: "#2FE0FF",
     featured: true,
     media: true,
+    mediaWide: true,
   },
   {
     slug: "medikal-katalog",
