@@ -74,9 +74,9 @@ export const work: CaseStudy[] = [
     mediaWide: true,
   },
   {
-    slug: "iklim-icin-ogretmenler",
-    title: "İklim için Öğretmenler",
-    client: "İklim için Öğretmenler Programı",
+    slug: "iklim-icin-ogret",
+    title: "İklim için Öğret",
+    client: "İklim için Değişen ve Dönüştüren Öğretmenler",
     category: "Platform · Education",
     year: "2026",
     role: ["Design", "Full-Stack"],
