@@ -33,8 +33,9 @@ export const services: Service[] = [
     title: "Full-Stack",
     tagline: "Tasarımdan production'a uçtan uca",
     description:
-      "Next.js, TypeScript ve modern altyapıyla hızlı, güvenli ve sürdürülebilir ürünler. Tasarımı piksel hassasiyetinde koda döker, deploy ve performansa kadar sahiplenirim.",
+      "Next.js, TypeScript ve modern altyapıyla hızlı, güvenli ve sürdürülebilir ürünler. Hazır tema ya da şablon değil; tasarımı piksel hassasiyetinde, projene özel yazılmış koda döker, deploy ve performansa kadar sahiplenirim.",
     deliverables: [
+      "Sıfırdan özel (custom) kod, şablonsuz",
       "Next.js / TypeScript geliştirme",
       "API & veri entegrasyonu",
       "SEO, performans, erişilebilirlik",
@@ -49,10 +50,10 @@ export const services: Service[] = [
     title: "Hızlı MVP",
     tagline: "Fikirden çalışan ürüne, günler içinde",
     description:
-      "Fikirden çalışan ürüne en kısa yoldan. AI destekli iş akışlarıyla (vibe coding) prototip, MVP ve deneysel arayüzleri günler içinde yayına alırım — kalite ve kontrolü kaybetmeden.",
+      "Fikirden çalışan ürüne en kısa yoldan. Yapay zeka destekli iş akışlarıyla prototip, MVP ve deneysel arayüzleri günler içinde yayına alırım. Hepsi şablon değil, gerçek custom code; kalite ve kontrolü kaybetmeden.",
     deliverables: [
       "Hızlı prototip & MVP",
-      "AI destekli iş akışı kurulumu",
+      "Yapay zeka destekli iş akışı",
       "Deneysel UI / WebGL denemeleri",
       "İteratif ürün geliştirme",
     ],

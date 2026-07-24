@@ -7,21 +7,23 @@ import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import Cursor from "@/components/motion/Cursor";
 
+// latin-ext covers Turkish glyphs (ş ğ İ ı) — without it those chars fall back
+// to a system font, breaking headings on a Turkish (lang="tr") site.
 const display = Space_Grotesk({
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   variable: "--font-display-src",
   weight: ["500", "600", "700"],
   display: "swap",
 });
 
 const sans = Inter({
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   variable: "--font-sans-src",
   display: "swap",
 });
 
 const mono = JetBrains_Mono({
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   variable: "--font-mono-src",
   weight: ["400", "500"],
   display: "swap",
@@ -30,15 +32,15 @@ const mono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Creative Developer`,
-    template: `%s — ${site.name}`,
+    default: `${site.name} · Creative Developer`,
+    template: `%s · ${site.name}`,
   },
   description: site.description,
   keywords: [
     "creative developer",
     "web design",
     "full-stack",
-    "vibe coding",
+    "hızlı MVP",
     "Next.js",
     "motion design",
     "portfolio",
@@ -46,17 +48,18 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: site.founder }],
   creator: site.founder,
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: site.locale,
     url: site.url,
     siteName: site.name,
-    title: `${site.name} — Creative Developer`,
+    title: `${site.name} · Creative Developer`,
     description: site.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — Creative Developer`,
+    title: `${site.name} · Creative Developer`,
     description: site.description,
   },
   robots: { index: true, follow: true },

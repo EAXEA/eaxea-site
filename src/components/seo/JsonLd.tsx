@@ -10,12 +10,20 @@ export default function JsonLd() {
     url: site.url,
     email: site.email,
     founder: { "@type": "Person", name: site.founder },
-    areaServed: "Worldwide",
+    // Consistent with the site's "Ankara · Remote" positioning — Ankara-based,
+    // serving clients remotely across Türkiye.
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Ankara",
+      addressCountry: "TR",
+    },
+    areaServed: "TR",
     knowsAbout: [
       "Web Design",
       "Full-Stack Development",
       "Motion Design",
-      "Vibe Coding",
+      "AI-Assisted Development",
+      "Custom Web Development",
       "Video Production",
       "Video Editing (Adobe Premiere)",
     ],

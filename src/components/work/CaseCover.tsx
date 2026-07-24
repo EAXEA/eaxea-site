@@ -68,7 +68,7 @@ export default function CaseCover({ study }: { study: CaseStudy }) {
           </div>
           <Image
             src={`/showcase/${study.slug}-wide.webp`}
-            alt={`${study.title} — masaüstü görünüm`}
+            alt={`${study.title} · masaüstü görünüm`}
             width={1280}
             height={800}
             className="block w-full"

@@ -6,7 +6,8 @@ import PageHeader from "@/components/ui/PageHeader";
 export const metadata: Metadata = {
   title: "İşler",
   description:
-    "Seçili işler — marka siteleri, ürün arayüzleri ve deneysel web deneyimleri.",
+    "Seçili işler. Marka siteleri, ürün arayüzleri ve deneysel web deneyimleri.",
+  alternates: { canonical: "/work" },
 };
 
 export default function WorkPage() {

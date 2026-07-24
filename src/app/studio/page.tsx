@@ -11,7 +11,8 @@ import { capabilities, principles, productionCredits } from "@/data/studio";
 export const metadata: Metadata = {
   title: "Stüdyo",
   description:
-    "EAXEA — premium, motion-first dijital deneyimler üreten bağımsız bir creative development stüdyosu. Web design, full-stack, vibe coding ve video prodüksiyon.",
+    "EAXEA · premium, motion-first dijital deneyimler üreten bağımsız bir creative development stüdyosu. Web design, full-stack, hızlı MVP ve video prodüksiyon.",
+  alternates: { canonical: "/studio" },
 };
 
 export default function StudioPage() {

@@ -19,7 +19,7 @@ export default function ContactForm() {
     const name = String(f.get("name") || "");
     const email = String(f.get("email") || "");
     const message = String(f.get("message") || "");
-    const subject = `Yeni proje — ${topic} (${name})`;
+    const subject = `Yeni proje · ${topic} (${name})`;
     const body = `İsim: ${name}\nE-posta: ${email}\nKonu: ${topic}\nKapsam: ${scope}\n\n${message}`;
     window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(
       subject

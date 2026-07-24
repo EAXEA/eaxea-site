@@ -7,7 +7,7 @@
 
 ## Ne bu?
 Cihan Şenocak'ın kişisel **creative developer** portfolyosu. Sattığı hizmetler:
-**web design + full-stack + vibe coding**. Marka adı **EAXEA**.
+**web design + full-stack + yapay zeka destekli geliştirme (custom code) + video & film**. Marka adı **EAXEA**.
 Tasarım dili: koyu sinematik zemin + neon (ember/magenta/violet/cyan) + WebGL parçacık
 sahnesi + glassmorphism. Motion-first ama okunaklı, hızlı ve SEO dostu.
 Referans esin: Instagram reel (web.with.ai) — "futuristic digital experience".
@@ -62,6 +62,8 @@ src/
 
 ## Önemli kararlar / kurallar
 - **Marka/içerik değişikliği** → önce `src/lib/site.ts` ve `src/data/*`. UI bunları okur.
+- **Em-dash (—) YASAK — site geneli**: kullanıcıya görünen hiçbir metinde (data string'leri, JSX metni, meta title/description, OG, alt-text, e-posta konusu) uzun tire kullanma. Cümle içi kalıp → nokta + ayrı cümle; başlık/etiket ayırıcı → orta nokta `·` (sitenin standart ayırıcısı). Kod yorumları bu kuralın dışında.
+- **"vibe coding" ifadesi kullanılmaz**: müşteri-dönük dilde "yapay zeka destekli geliştirme" + "şablon değil, özel (custom) kod" konumlaması kullanılır.
 - **3D progressive enhancement**: `HeroBackground`, reduced-motion / dokunmatik (coarse pointer) /
   `deviceMemory ≤ 4` cihazlarda CSS aurora fallback'e düşer; canvas `dynamic(ssr:false)` ile ayrı bundle.
 - **Reduced motion**: tüm motion primitive'leri `prefersReducedMotion()` ile no-op olur; içerik JS'siz de görünür.

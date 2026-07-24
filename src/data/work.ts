@@ -150,7 +150,7 @@ export const work: CaseStudy[] = [
     client: "Kendi ürünüm · açık kaynak",
     category: "Product · Chrome Extension",
     year: "2026",
-    role: ["Product", "Full-Stack", "Vibe Coding"],
+    role: ["Product", "Full-Stack", "AI-Assisted"],
     stack: ["JavaScript (MV3)", "SVG UI", "AI Workflow"],
     status: "Ürün",
     phase: "ongoing",
@@ -266,7 +266,7 @@ export const work: CaseStudy[] = [
     summary:
       "Premium bir veteriner kliniği için Apple HIG ilhamlı, güven veren bir portal konsepti.",
     intro:
-      "VetVital, Çankaya'da premium bir veteriner kliniği. Bu, sahiplerine güven ve sıcaklık hissi veren, aynı zamanda teknolojik ve modern duran bir dijital yüz için hazırladığım konsept tasarım — şu an müşteri onay sürecinde.",
+      "VetVital, Çankaya'da premium bir veteriner kliniği. Bu, sahiplerine güven ve sıcaklık hissi veren, aynı zamanda teknolojik ve modern duran bir dijital yüz için hazırladığım konsept tasarım. Şu an müşteri onay sürecinde.",
     challenge:
       "Tıbbi ciddiyet ile evcil hayvan sıcaklığını aynı arayüzde dengelemek; her cihazda kusursuz çalışan adaptif bir karanlık mod kurmak.",
     approach: [

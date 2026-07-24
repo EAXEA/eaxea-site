@@ -60,6 +60,20 @@ body {
   color: #08080a;
 }
 
+/* Keyboard focus ring — brand ember, only on :focus-visible so mouse/touch
+   users never see it. Element+pseudo specificity (0,1,1) beats the form
+   fields' Tailwind `outline-none` (0,1,0), so inputs get a visible ring too. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-ember);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
 /* Custom scrollbar (desktop) */
 ::-webkit-scrollbar {
   width: 9px;

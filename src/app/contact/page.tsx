@@ -8,6 +8,7 @@ import PulseDot from "@/components/ui/PulseDot";
 export const metadata: Metadata = {
   title: "İletişim",
   description: "Bir proje fikrin mi var? Konuşalım.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {

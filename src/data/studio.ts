@@ -8,7 +8,7 @@ export const capabilities = [
   "Next.js / TypeScript",
   "Performans & SEO",
   "Erişilebilirlik",
-  "AI / Vibe Coding",
+  "Yapay Zeka Destekli Geliştirme",
   "Video & Kurgu / Premiere",
   "Belgesel Prodüksiyon",
   "Animasyon / Blender",
@@ -75,5 +75,9 @@ export const principles: Principle[] = [
   {
     t: "Hız bir özelliktir",
     d: "Görsel iddia ile performans birlikte gelir. Mobilde de hızlı, hafif ve sağlam.",
+  },
+  {
+    t: "Şablon değil, özel kod",
+    d: "Hazır tema veya site kurucu yok. Her proje sıfırdan, sana özel yazılan kodla kurulur. Sahibi, hızı ve sınırları senin olur.",
   },
 ];
