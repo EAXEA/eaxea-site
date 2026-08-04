@@ -98,7 +98,7 @@ Hero mesajı büyük, sakin ve yüksek kontrastlı olacaktır. Endüstriyel dona
 4. Ana mesaj ve CTA’lar füme cam yüzeyde görünür.
 5. Büyük fiziksel ekran seçili projenin gerçek önizlemesini gösterir.
 6. Kaydırmayla proje kartuşları kontrollü biçimde sırayla etkinleşir.
-7. İkinci veya üçüncü ekran sonunda makine katmanlarına ayrılarak sitenin normal içerik yapısına dönüşür.
+7. Açılış anlatısının üçüncü ekran yüksekliğinde makine katmanlarına ayrılarak sitenin normal içerik yapısına dönüşür.
 
 Önerilen hero mesajı:
 
@@ -121,7 +121,7 @@ Makinenin parçaları sonraki bölümlerin anlamına dönüşür:
 - Üretici plakası → Hakkımızda
 - Fiziksel bağlantı portu → İletişim
 
-Ağır sahne ilk 2–3 ekranla sınırlı kalacaktır. Sonraki bölümler aynı malzeme ve hareket dilini daha sade, hızlı ve okunabilir biçimde sürdürecektir.
+Ağır sahne ilk üç ekran yüksekliğiyle sınırlı kalacaktır. Sonraki bölümler aynı malzeme ve hareket dilini daha sade, hızlı ve okunabilir biçimde sürdürecektir.
 
 ## 6. Sayfa ve Bölüm Yapısı
 
@@ -193,7 +193,7 @@ Form, görsel gösteriye rağmen açık ve standart kullanılabilirlik kurallar�
 - Hover durumunda fiziksel düğmeler hafif yükselir.
 - Tıklamada görünür mekanik basma mesafesi bulunur.
 - Kartuş değişiminde aktif modül kademeli kapanır, yeni modül kademeli açılır.
-- Sayfa geçişleri ortak malzeme veya kamera eşleşmesiyle bağlanabilir.
+- Sayfalar arası geçişlerde kısa bir füme cam kararması ve eşleşen malzeme hareketi kullanılır; tam 3D kamera geçişi yalnızca ana sayfanın açılış anlatısında bulunur.
 - Ses varsayılan olarak kapalıdır. İleride eklenirse yalnızca açık kullanıcı tercihiyle mekanik geri bildirim sağlar.
 
 ## 8. Mobil ve Uyarlanabilir Deneyim
