@@ -16,7 +16,7 @@
 - Hero mesajı: `Fikirleri çalışan dijital ürünlere dönüştürüyoruz.`
 - Birincil CTA: `Projeleri İncele`; ikincil CTA: `Birlikte Çalışalım`.
 - Mavi frontend, sıcak amber backend, yumuşak beyaz AI akışını temsil eder; mor, magenta ve rainbow RGB kullanılmaz.
-- Ağır WebGL açılışı yalnızca ilk üç ekran yüksekliğinde bulunur.
+- Ağır WebGL animasyonu yalnızca ilk üç ekran yüksekliğinde bulunur; görsel şasi ve makine dili header’dan footer’a kesintisiz devam eder.
 - WebGL, reduced-motion, coarse-pointer veya düşük bellek durumunda kullanılabilir 2D yedek zorunludur.
 - Temel içerik ve CTA’lar 3D paketinden bağımsız render edilmelidir.
 - WCAG AA kontrastı, klavye erişimi ve görünür odak korunmalıdır.
@@ -493,7 +493,7 @@ Run: `npm test -- src/components/sections/HomeSections.test.tsx`.
 
 - [ ] **Step 3: Implement the sections**
 
-Use the machine disassembly mapping: display → featured work, controllers → services, manufacturer plate → manifesto, connection port → CTA. Keep these sections DOM-first with subtle GSAP reveals; no additional Canvas.
+Use one continuous M·01 chassis: display → featured work, controllers → services, service hatch → manifesto, communication terminal → CTA, bottom service rail → footer. Keep these sections DOM-first with subtle GSAP reveals and CSS/HTML hardware surfaces; no additional Canvas. Every section heading must use the shared \`MachineDisplay\` component matching the contact terminal’s monochrome calculator/VFD screen.
 
 - [ ] **Step 4: Remove superseded homepage components**
 
@@ -739,3 +739,10 @@ git commit -m "test: gate Maiamari redesign for release"
 - [ ] Confirm reduced-motion and WebGL-disabled modes provide the complete journey.
 - [ ] Confirm project claims and metrics match source data.
 - [ ] Confirm `git status --short` is clean after the final commit.
+
+
+## Approved Visual Amendment
+
+The implementation must treat the page as one continuous manufactured device. Do not transition into conventional editorial page sections below the hero. Header, section headings, project modules, services, studio hatch, contact terminal and footer must share the same chassis rails, PCB substrate and smoked-glass construction.
+
+All section and subsection headings use one reusable monochrome calculator/VFD display language matching the contact form screen. Implement this with `MachineDisplay`; do not mix OLED, segmented display and engraved-heading styles arbitrarily. Density is reduced through empty hardware bays and spacing inside the chassis, not by leaving the machine metaphor.
