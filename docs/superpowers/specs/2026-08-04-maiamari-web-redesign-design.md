@@ -114,20 +114,20 @@ Birincil CTA:
 
 ### Geçiş mantığı
 
-Makinenin parçaları sonraki bölümlerin anlamına dönüşür:
+Makinenin parçaları, aynı fiziksel cihazın kesintisiz bölümleri olarak sonraki içeriklerin işlevine dönüşür:
 
 - Büyük ekran ve render hattı → Projeler
 - M·01 işlemci ve kontrolcüler → Hizmetler
 - Üretici plakası → Hakkımızda
 - Fiziksel bağlantı portu → İletişim
 
-Ağır sahne ilk üç ekran yüksekliğiyle sınırlı kalacaktır. Sonraki bölümler aynı malzeme ve hareket dilini daha sade, hızlı ve okunabilir biçimde sürdürecektir.
+Ağır sahne ilk üç ekran yüksekliğiyle sınırlı kalacaktır. Sonraki bölümler de aynı kesintisiz M·01 şasisi içinde kalacaktır. Yoğunluk; normal web bölümlerine dönüşerek değil, geniş karanlık cam bölmeler, boş PCB alanları ve izole modüllerle azaltılacaktır.
 
 ## 6. Sayfa ve Bölüm Yapısı
 
 ### Ana Sayfa
 
-Ana sayfa stüdyonun tezini, seçili projeleri, hizmet özetini, çalışma yaklaşımını ve güçlü iletişim çağrısını tek anlatıda birleştirir. Her bölüm ayrı bir dashboard kartı değil, makinenin doğal devamı gibi davranır.
+Ana sayfa stüdyonun tezini, seçili projeleri, hizmet özetini, çalışma yaklaşımını ve güçlü iletişim çağrısını tek anlatıda birleştirir. Header, tüm bölümler, ara başlıklar, iletişim alanı ve footer aynı makinenin fiziksel parçalarıdır; sayfa hiçbir noktada geleneksel editoryal site düzenine dönüşmez.
 
 ### Projeler
 
@@ -253,3 +253,19 @@ Tasarım şu koşulları karşıladığında başarılı sayılır:
 - Gerçek zamanlı analitik dashboard
 - Dekoratif hologramlar veya oyunlaştırılmış görev sistemi
 - Gerçekte bulunmayan ekip sayfası
+
+
+## 13. Onaylı Görsel Sistem Güncellemesi — Kesintisiz Makine
+
+4 Ağustos 2026 tarihli frontend incelemesinde aşağıdaki yön onaylanmıştır:
+
+- Sayfanın tamamı, header’dan footer’a kadar tek ve kesintisiz M·01 Product Engine şasisi olarak görünür.
+- İki yandaki metal gövde rayları, PCB tabanı, bakır veri yolları ve füme cam katmanı tüm sayfa boyunca devam eder.
+- Header; takılı kontrol konsolu ve mekanik navigasyon tuşlarıdır.
+- Projeler ortak backplane’e takılan fiziksel kartuşlardır.
+- Hizmetler döner seçicili kontrol modülleridir.
+- Stüdyo alanı açılan servis kapağı ve üretici plakasıdır.
+- İletişim alanı monokrom ekran, fiziksel klavye, bütçe düğmesi, zaman sürgüsü ve bağlantı portundan oluşan iletişim terminalidir.
+- Footer geleneksel kolon yapısı kullanmaz; cihazın seri numarası, güç plakası, iletişim portu ve üretici damgasını taşıyan alt servis rayıdır.
+- Bütün bölüm ve ara başlıklar, iletişim formundaki ekranla aynı monokrom hesap makinesi/VFD ekran sistemini kullanır. Farklı retro ekran stilleri karıştırılmaz.
+- Yoğunluk, makine metaforunu terk ederek değil; geniş boş cam bölmeler, az bileşenli servis alanları ve kontrollü ışıkla yönetilir.
