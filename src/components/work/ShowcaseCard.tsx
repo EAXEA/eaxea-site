@@ -18,10 +18,10 @@ export default function ShowcaseCard({
   study: CaseStudy;
   index: number;
 }) {
-  const { ref: videoRef, pausedByUser, toggle } = useShowcaseVideo(`/showcase/${study.slug}.webm`);
+  const { ref: videoRef, pausedByUser, controllable, toggle } = useShowcaseVideo(`/showcase/${study.slug}.webm`);
 
   return (
-    <div className="relative">
+    <div>
     <Link
       href={`/work/${study.slug}`}
       className="group block"
@@ -38,7 +38,7 @@ export default function ShowcaseCard({
             loop
             playsInline
             preload="none"
-            aria-hidden="true"
+            aria-label={`${study.title} ekran önizlemesi`}
           />
         ) : (
           <GradientCover accent={study.accent} className="absolute inset-0" />
@@ -85,7 +85,18 @@ export default function ShowcaseCard({
         <p className="mt-1 text-[0.65rem] text-muted">{study.status}</p>
       </div>
     </Link>
-    {study.media && <button type="button" onClick={toggle} aria-pressed={pausedByUser} aria-label={`${study.title}: önizlemeyi ${pausedByUser ? "sürdür" : "duraklat"}`} className="absolute left-2 top-2 z-10 flex size-11 items-center justify-center rounded-full border border-white/20 bg-black/80 text-white md:left-auto md:right-3 md:top-14 motion-reduce:hidden">{pausedByUser ? "▶" : "Ⅱ"}</button>}
+    {study.media && controllable && (
+      <div className="mt-2 flex justify-end">
+        <button
+          type="button"
+          onClick={toggle}
+          aria-label={`${study.title} önizlemesi: ${pausedByUser ? "oynat" : "duraklat"}`}
+          className="inline-flex min-h-11 items-center rounded-full px-3 text-[0.65rem] uppercase tracking-widest text-faint transition-colors hover:text-fg"
+        >
+          {pausedByUser ? "Oynat" : "Duraklat"}
+        </button>
+      </div>
+    )}
     </div>
   );
 }

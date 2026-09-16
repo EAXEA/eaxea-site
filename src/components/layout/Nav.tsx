@@ -122,19 +122,6 @@ export default function Nav() {
         aria-label="Mobil menü"
         onCancel={() => setOpen(false)}
         onClose={() => setOpen(false)}
-        onKeyDown={(event) => {
-          if (event.key !== "Tab") return;
-          const targets = event.currentTarget.querySelectorAll<HTMLElement>("button, a[href]");
-          const first = targets[0];
-          const last = targets[targets.length - 1];
-          if (event.shiftKey && document.activeElement === first) {
-            event.preventDefault();
-            last?.focus();
-          } else if (!event.shiftKey && document.activeElement === last) {
-            event.preventDefault();
-            first?.focus();
-          }
-        }}
         data-lenis-prevent
         className="fixed inset-0 m-0 h-dvh max-h-none w-full max-w-none border-0 bg-bg px-8 text-fg backdrop:bg-bg open:flex open:flex-col open:justify-center"
       >

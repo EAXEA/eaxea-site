@@ -15,7 +15,7 @@ import { useShowcaseVideo } from "@/hooks/useShowcaseVideo";
  * poster under reduced motion.
  */
 export default function CaseCover({ study }: { study: CaseStudy }) {
-  const { ref: videoRef, pausedByUser, toggle } = useShowcaseVideo(`/showcase/${study.slug}.webm`);
+  const { ref: videoRef, pausedByUser, controllable, toggle } = useShowcaseVideo(`/showcase/${study.slug}.webm`);
 
   if (!study.media) {
     return (
@@ -85,7 +85,16 @@ export default function CaseCover({ study }: { study: CaseStudy }) {
         preload="none"
         aria-label={`${study.title} ekran önizlemesi`}
       />
-      <button type="button" onClick={toggle} aria-pressed={pausedByUser} aria-label={`Önizlemeyi ${pausedByUser ? "sürdür" : "duraklat"}`} className="absolute right-4 top-4 z-10 min-h-11 rounded-full border border-white/20 bg-black/80 px-4 text-sm text-white motion-reduce:hidden">{pausedByUser ? "Oynat ▶" : "Duraklat Ⅱ"}</button>
+      {controllable && (
+        <button
+          type="button"
+          onClick={toggle}
+          aria-label={`${study.title} önizlemesi: ${pausedByUser ? "oynat" : "duraklat"}`}
+          className="absolute right-4 top-4 z-10 min-h-11 rounded-full border border-white/20 bg-black/80 px-4 text-sm text-white"
+        >
+          {pausedByUser ? "Oynat" : "Duraklat"}
+        </button>
+      )}
 
       <span className="absolute bottom-4 left-4 font-mono text-[0.6rem] uppercase tracking-widest text-white/65">
         {study.category} · {study.year}
