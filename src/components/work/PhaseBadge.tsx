@@ -13,6 +13,7 @@ export default function PhaseBadge({
   className?: string;
 }) {
   const ongoing = phase === "ongoing";
+  const labels = { ongoing: "Aktif geliştirme", done: "Tamamlandı", paused: "Geliştirmeye ara verildi", archived: "Arşivlendi" };
   return (
     <span
       className={cn(
@@ -26,10 +27,10 @@ export default function PhaseBadge({
         )}
         <span
           className="relative inline-flex size-1.5 rounded-full"
-          style={{ background: ongoing ? "var(--color-ember)" : "#34D399" }}
+          style={{ background: ongoing ? "var(--color-ember)" : phase === "done" ? "#34D399" : "var(--color-muted)" }}
         />
       </span>
-      {ongoing ? "Aktif geliştirme" : "Tamamlandı"}
+      {labels[phase]}
     </span>
   );
 }

@@ -58,7 +58,7 @@ export const services: Service[] = [
       "İteratif ürün geliştirme",
     ],
     accent: "var(--color-cyan)",
-    proof: { label: "Canlı örnek: Bass Assistant", href: "/work/bass-assistant" },
+    proof: { label: "Ürün çalışması: Bass Assistant", href: "/work/bass-assistant" },
   },
   {
     id: "video-film",

@@ -2,7 +2,7 @@
 // Change `site.name` / `tagline` here and it propagates everywhere.
 
 export const site = {
-  name: "EAXEA",
+  name: "maiamari.web",
   founder: "Cihan Şenocak",
   role: "Creative Developer",
   // Hero one-liner. Bold but readable.
@@ -11,7 +11,7 @@ export const site = {
   // Positioning line used in meta + footer.
   positioning: "Web design · Full-stack · Video & film · Hızlı MVP",
   description:
-    "EAXEA, premium ve motion-first dijital deneyimler üreten bağımsız bir creative development stüdyosu. Web tasarımı, full-stack geliştirme, yapay zeka destekli geliştirme ve belgeselden kurumsal filme uzanan video prodüksiyonu tek elde birleşir. Hepsi şablon değil, projene özel yazılmış kod.",
+    "maiamari.web, premium ve motion-first dijital deneyimler üreten bağımsız bir creative development stüdyosu. Web tasarımı, full-stack geliştirme, yapay zeka destekli geliştirme ve belgeselden kurumsal filme uzanan video prodüksiyonu tek elde birleşir. Hepsi şablon değil, projene özel yazılmış kod.",
   // Public URL — swap to the custom domain when it's purchased.
   url: "https://eaxea-site.vercel.app",
   locale: "tr_TR",
@@ -21,6 +21,7 @@ export const site = {
   // Client-facing response-time promise — adjust to your real cadence.
   responseTime: "Mesajlara genelde 48 saat içinde dönüş yaparım.",
   socials: [
+    // EAXEA is the founder's GitHub username, not the public studio brand.
     { label: "GitHub", handle: "EAXEA", href: "https://github.com/EAXEA" },
     {
       label: "Email",

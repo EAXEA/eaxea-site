@@ -71,7 +71,7 @@ export default function Footer() {
 
         <div className="flex flex-col items-start justify-between gap-4 py-8 font-mono text-xs uppercase tracking-widest text-faint md:flex-row md:items-center">
           <span>
-            © {new Date().getFullYear()} {site.name} · {site.founder}
+            © {new Date().getFullYear()} <span className="normal-case">{site.name}</span> · {site.founder}
           </span>
           <span>{site.location}</span>
         </div>
@@ -79,7 +79,7 @@ export default function Footer() {
 
       {/* Oversized wordmark */}
       <div className="pointer-events-none select-none px-5 md:px-8">
-        <div className="display w-full text-center text-[20vw] leading-none text-fg/[0.035]">
+        <div className="display w-full text-center text-[12vw] leading-none text-fg/[0.035]">
           {site.name}
         </div>
       </div>

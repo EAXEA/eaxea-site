@@ -12,7 +12,7 @@ export type CaseStudy = {
   /** live status shown as a badge — e.g. "Yayında", "Konsept", "Tasarım aşamasında" */
   status: string;
   /** completion state — "done" = iş bitti/teslim edildi, "ongoing" = iş sürüyor */
-  phase: "done" | "ongoing";
+  phase: "done" | "ongoing" | "paused" | "archived";
   /** one-line teaser for cards */
   summary: string;
   /** opening paragraph on the case page */
@@ -64,7 +64,7 @@ export const work: CaseStudy[] = [
       "Paylaşıldığında öne çıkan otomatik OG görselleri",
     ],
     metrics: [
-      { label: "Satıştaki eser", value: "56" },
+      { label: "İlk katalogdaki eser", value: "56" },
       { label: "Sürüm", value: "v2.0" },
       { label: "Görsel boyutu (kaynağa göre)", value: "↓84%" },
     ],
@@ -114,13 +114,13 @@ export const work: CaseStudy[] = [
     year: "2026",
     role: ["Design", "Full-Stack", "SEO & A11y"],
     stack: ["Next.js 16", "Tailwind 4", "shadcn/ui", "Framer Motion"],
-    url: "https://fixgo-mu.vercel.app",
+    url: "https://fixgo.vip",
     status: "Yayında",
     phase: "ongoing",
     summary:
       "Kapıdan kapıya cihaz tamiri için dönüşüm odaklı, mobil öncelikli bir landing.",
     intro:
-      "Fixgo, Ankara'da telefon, tablet ve laptopu adresten alıp tamir edip 2-4 saatte geri getiren bir teknik servis girişimi. Site tek bir işe odaklanıyor: ziyaretçiyi aramaya ya da WhatsApp'a en kısa yoldan taşımak.",
+      "Fixgo, Ankara'da cihazları adresten alıp teknik servise ulaştıran bir girişim. Site tek bir işe odaklanıyor: ziyaretçiyi aramaya ya da WhatsApp'a en kısa yoldan taşımak.",
     challenge:
       "Güvensizliğin norm olduğu bir sektörde ilk saniyede güven kurmak; mobil trafiğin domine ettiği bir kitlede dönüşüm sürtünmesini sıfıra indirmek.",
     approach: [
@@ -152,8 +152,8 @@ export const work: CaseStudy[] = [
     year: "2026",
     role: ["Product", "Full-Stack", "AI-Assisted"],
     stack: ["JavaScript (MV3)", "SVG UI", "AI Workflow"],
-    status: "Ürün",
-    phase: "ongoing",
+    status: "Kişisel proje",
+    phase: "paused",
     summary:
       "Basçılar için ton motoru: Songsterr'den tek tıkla import, AI preset'leri ve sanal knob paneli.",
     intro:
@@ -289,17 +289,17 @@ export const work: CaseStudy[] = [
   {
     slug: "medikal-katalog",
     title: "Medikal Katalog",
-    client: "Medikal cihaz distribütörü · isim süreç gereği saklı",
+    client: "Anonim keşif çalışması",
     category: "Rebuild · Catalog Platform",
     year: "2026",
     role: ["Keşif & Veri", "Full-Stack", "SEO/i18n"],
     stack: ["Next.js 16", "next-intl", "Tailwind 4", "ContentSource → Payload"],
-    status: "Keşif tamamlandı",
-    phase: "ongoing",
+    status: "Arşiv · keşif çalışması",
+    phase: "archived",
     summary:
-      "Bir medikal distribütörün katalog sitesini iki dilli, CMS'e hazır bir platforma taşıyan yeniden inşa.",
+      "Bir medikal katalog için tamamlanan keşif, veri modelleme ve iki dilli platform prototipi. Yayına alınmış bir müşteri işi değildir.",
     intro:
-      "Bir medikal cihaz distribütörü için katalog sitesinin yeniden inşası. Mevcut sitenin tamamını tarayıp yapılandırılmış envantere çevirdim; tek kod tabanında hem statik hem CMS'li paketi destekleyen iki dilli bir Next.js iskeleti ayağa kaldırdım. Proje devam eden bir süreçte olduğu için müşteri adı şimdilik saklı.",
+      "Bir medikal katalog için mevcut siteyi tarayıp yapılandırılmış envantere çevirdim; tek kod tabanında statik ve CMS'li paketleri destekleyen iki dilli bir Next.js prototipi hazırladım. Çalışma keşif ve teklif aşamasında kapandı; müşteri teslimatı veya canlı lansman yapılmadı. Müşteri bilgileri anonim tutuluyor.",
     challenge:
       "Yıllar içinde organik büyümüş bir katalog sitesini SEO kaybetmeden modern bir mimariye taşımak; müşterinin paket kararından bağımsız ilerleyebilen bir teknik temel kurmak.",
     approach: [
