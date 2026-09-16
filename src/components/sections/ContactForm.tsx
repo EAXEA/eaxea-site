@@ -63,7 +63,7 @@ export default function ContactForm() {
     "w-full rounded-xl border border-line bg-surface px-4 py-3.5 text-fg placeholder:text-faint outline-none transition-colors focus:border-ember";
 
   return (
-    <form ref={formRef} action={`mailto:${site.email}`} method="post" encType="text/plain" onSubmit={onSubmit} onChange={() => { setFeedback(""); setDraft(""); }} className="flex flex-col gap-6" aria-describedby="contact-help">
+    <form ref={formRef} onSubmit={onSubmit} onChange={() => { setFeedback(""); setDraft(""); }} className="flex flex-col gap-6" aria-describedby="contact-help">
       <noscript><p className="text-sm text-muted">Taslak hazırlamak için JavaScript gerekir. Doğrudan <a className="underline" href={`mailto:${site.email}`}>{site.email}</a> adresine yazabilirsin.</p></noscript>
       <div className="grid gap-6 md:grid-cols-2">
         <label className="flex flex-col gap-2">

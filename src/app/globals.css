@@ -14,7 +14,9 @@
 
   --color-fg: #ededf2;
   --color-muted: #8b8b9c;
-  --color-faint: #8b8b9c;
+  /* Third text tier. Dimmer than muted but still WCAG AA (5.09:1 on --color-bg,
+     4.87:1 on --color-surface), unlike the original #5a5a6a at 2.99:1. */
+  --color-faint: #7e7e91;
 
   --color-ember: #ff5c28;
   --color-magenta: #ff2d9c;

@@ -49,9 +49,11 @@ test('production routes, canonical URLs, social metadata and security headers', 
     assert.equal(response.headers.get('x-powered-by'), null);
     const html = await response.text();
     if (path === '/contact') {
-      assert.ok(html.includes(`action="mailto:${site.email}"`), 'contact form target');
-      assert.match(html, /<form[^>]*method="post"/);
+      // The form never posted anywhere useful: a mailto action with method=post
+      // is not reliably supported, so it contradicted its own noscript notice.
+      assert.ok(!html.includes(`action="mailto:`), 'form must not claim a mailto action');
       assert.match(html, /<noscript>/);
+      assert.ok(html.includes(`mailto:${site.email}`), 'noscript still offers a direct address');
     }
     assert.match(html, /<html[^>]+lang="tr"/);
     assert.match(html, /id="main-content"/);

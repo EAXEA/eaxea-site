@@ -13,14 +13,21 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run lint
-      - run: npm test
+      - run: npm run typecheck
       - run: npm run build
-      - run: npm audit --omit=dev
-      - name: Production route checks
+      # A transitive low-severity advisory should not turn every unrelated PR red.
+      - run: npm audit --omit=dev --audit-level=high
+      - name: Route and content checks against a production server
         run: |
+          set -euo pipefail
           npm run start -- --hostname 127.0.0.1 --port 3210 &
-          for i in $(seq 1 30); do
+          server=$!
+          trap 'kill "$server" 2>/dev/null || true' EXIT
+          for _ in $(seq 1 30); do
             if curl -fsS http://127.0.0.1:3210/ > /dev/null; then break; fi
             sleep 1
           done
+          # Fail loudly here rather than letting the suite die on ECONNREFUSED,
+          # which buries the real reason in the test output.
+          curl -fsS http://127.0.0.1:3210/ > /dev/null || { echo "server never became ready"; exit 1; }
           TEST_BASE_URL=http://127.0.0.1:3210 npm test
