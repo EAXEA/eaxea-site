@@ -1,8 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync } from 'node:fs';
 import { work, getCaseStudy, adjacentWork } from '../../src/data/work.ts';
 import { services } from '../../src/data/services.ts';
+import { site } from '../../src/lib/site.ts';
 
 test('portfolio routes are unique and all declared showcase assets exist', () => {
   assert.equal(new Set(work.map(item => item.slug)).size, work.length);
@@ -41,6 +42,7 @@ test('every service proof resolves to an existing page or case', () => {
 test('public portfolio copy preserves anonymity and editorial rules', () => {
   const copy = JSON.stringify({ work, services });
   assert.doesNotMatch(copy, /—|vibe coding|Meta Medikal|metamedikal\.com/i);
-  const config = readFileSync(new URL('../../src/lib/site.ts', import.meta.url), 'utf8');
-  assert.match(config, /https:\/\/eaxea-site\.vercel\.app/);
+  assert.ok(site.name.trim().length > 0, 'site.name must not be empty');
+  assert.match(site.url, /^https:\/\//, 'site.url must be absolute and https');
+  assert.doesNotMatch(site.url, /\/$/, 'site.url must not end with a slash');
 });

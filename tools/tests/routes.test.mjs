@@ -1,25 +1,40 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { work } from '../../src/data/work.ts';
+import { site } from '../../src/lib/site.ts';
 
 const base = process.env.TEST_BASE_URL;
 const pages = ['/', '/studio', '/work', '/contact', ...work.map(item => `/work/${item.slug}`)];
 
-test('rendered branding uses maiamari.web while preserving the EAXEA GitHub identity', { skip: !base }, async () => {
+// React escapes quotes and apostrophes inside attributes, so a brand such as
+// "MAIA'S WORKS" never appears literally in the markup. Decode before comparing.
+const decode = value => (value ?? '')
+  .replace(/&(?:#x27|#39|apos);/g, "'")
+  .replace(/&(?:quot|#34);/g, '"')
+  .replace(/&lt;/g, '<')
+  .replace(/&gt;/g, '>')
+  .replace(/&amp;/g, '&');
+
+const canonicalFor = path => new URL(path, site.url).href.replace(/\/$/, '');
+
+test(`rendered branding uses ${site.name} while preserving the EAXEA GitHub identity`, { skip: !base }, async () => {
   for (const path of pages) {
     const response = await fetch(new URL(path, base), { headers: { 'user-agent': 'Twitterbot' } });
     assert.equal(response.status, 200, path);
     const html = await response.text();
-    const title = html.match(/<title>([^<]+)<\/title>/)?.[1];
-    assert.match(title ?? '', /\bmaiamari\.web\b/, `${path}: page brand`);
-    assert.match(html, /property="og:site_name" content="maiamari\.web"/, `${path}: social brand`);
+    const title = decode(html.match(/<title>([^<]+)<\/title>/)?.[1]);
+    assert.ok(title.includes(site.name), `${path}: page brand (got ${title})`);
+    const ogSiteName = decode(html.match(/property="og:site_name" content="([^"]*)"/)?.[1]);
+    assert.equal(ogSiteName, site.name, `${path}: social brand`);
     assert.match(html, /href="https:\/\/github\.com\/EAXEA"/, `${path}: original GitHub account`);
-    assert.doesNotMatch(html, /<meta[^>]*content="EAXEA[^\"]*"/, `${path}: stale brand metadata`);
+    // EAXEA stays hard-coded here on purpose. It is the retired brand, so this
+    // guards against it resurfacing in metadata whatever site.name becomes.
+    assert.doesNotMatch(html, /<meta[^>]*content="EAXEA[^"]*"/, `${path}: stale brand metadata`);
     if (path === '/') {
       const json = html.match(/<script type="application\/ld\+json">([^<]+)<\/script>/);
       assert.ok(json, 'structured data');
       const data = JSON.parse(json[1]);
-      assert.equal(data.name, 'maiamari.web');
+      assert.equal(data.name, site.name);
       assert.ok(data.sameAs.includes('https://github.com/EAXEA'));
     }
   }
@@ -34,7 +49,7 @@ test('production routes, canonical URLs, social metadata and security headers', 
     assert.equal(response.headers.get('x-powered-by'), null);
     const html = await response.text();
     if (path === '/contact') {
-      assert.match(html, /<form[^>]*action="mailto:scsenocak@gmail.com"/);
+      assert.ok(html.includes(`action="mailto:${site.email}"`), 'contact form target');
       assert.match(html, /<form[^>]*method="post"/);
       assert.match(html, /<noscript>/);
     }
@@ -42,9 +57,9 @@ test('production routes, canonical URLs, social metadata and security headers', 
     assert.match(html, /id="main-content"/);
     assert.equal((html.match(/<h1[ >]/g) || []).length, 1, `${path}: one h1`);
     const canonical = html.match(/<link rel="canonical" href="([^"]+)"/);
-    assert.equal(canonical?.[1].replace(/\/$/, ''), `https://eaxea-site.vercel.app${path}`.replace(/\/$/, ''), path);
+    assert.equal(canonical?.[1].replace(/\/$/, ''), canonicalFor(path), path);
     const ogUrl = html.match(/<meta property="og:url" content="([^"]+)"/);
-    assert.equal(ogUrl?.[1].replace(/\/$/, ''), `https://eaxea-site.vercel.app${path}`.replace(/\/$/, ''), `${path}: og url`);
+    assert.equal(ogUrl?.[1].replace(/\/$/, ''), canonicalFor(path), `${path}: og url`);
     assert.match(html, /property="og:image"/);
     for (const match of html.matchAll(/href="(\/[^"?#]*)[^"]*"/g)) {
       const target = match[1];
