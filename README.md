@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# maiamari.web
 
-## Getting Started
+Cihan Şenocak'ın web, ürün ve video çalışmalarını bir araya getiren bağımsız stüdyo portföyü.
 
-First, run the development server:
+Marka adı **maiamari.web**. **EAXEA**, Cihan'ın GitHub kullanıcı adıdır; `https://github.com/EAXEA` bağlantısı ve mevcut repo/proje adları korunur. Alan adı ve canlı yayın adresi ayrı ayarlardır; marka değişikliği bunları otomatik değiştirmez.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Çalıştırma
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Node 24 LTS kullanın. `npm ci` ardından `npm run dev` ile http://localhost:3000 üzerinde açılır.
+Üretim için `npm run build` ardından `npm run start` çalıştırın. Google fontlarının ilk derlemede indirilebilmesi için ağ erişimi gerekir.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## İçerik ve yapı
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `src/lib/site.ts`: marka, iletişim ve kanonik site adresi.
+- `src/data/`: projeler, hizmetler, süreç ve film kredileri.
+- `public/showcase/`: gerçek ekran videoları ve kapaklar.
+- `src/app/`: ana sayfa, stüdyo, işler, dokuz proje detayı, iletişim ve SEO rotaları.
+- `src/hooks/useShowcaseVideo.ts`: görünürlük ve hareket tercihine duyarlı önizlemeler.
 
-## Learn More
+Next.js 16.3, React 19, TypeScript, Tailwind 4, GSAP, Lenis ve React Three Fiber kullanılır.
+İletişim formu e-posta taslağı hazırlar veya kopyalar; sunucu üzerinden mesaj göndermez, veritabanına kaydetmez. Kurulum için secret gerekmez.
 
-To learn more about Next.js, take a look at the following resources:
+## Doğrulama ve yayın
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`npm run lint`, `npm test`, `npm run build`, `npm run typecheck`, `npm audit --omit=dev`.
+Üretim sunucusu açıkken `TEST_BASE_URL` ortam değişkenini sunucu adresine ayarlayıp `npm test` çalıştırmak tüm sayfaları da doğrular.
+GitHub kalite iş akışı aynı kontrolleri otomatik yürütür. Ayrıntılar ve yayın onayı sınırı: [docs/RELEASE.md](docs/RELEASE.md).

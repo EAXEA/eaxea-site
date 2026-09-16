@@ -1,13 +1,13 @@
 @AGENTS.md
 
-# EAXEA — Creative Developer Portfolyosu
+# maiamari.web · Creative Developer Portfolyosu
 
 > Bu dosya, Claude'un (ve herhangi bir geliştiricinin) projeye hızlı oryante olması için
 > yazıldı. Kullanıcı Türkçe yazar; aksi istenmedikçe Türkçe cevap ver.
 
 ## Ne bu?
 Cihan Şenocak'ın kişisel **creative developer** portfolyosu. Sattığı hizmetler:
-**web design + full-stack + yapay zeka destekli geliştirme (custom code) + video & film**. Marka adı **EAXEA**.
+**web design + full-stack + yapay zeka destekli geliştirme (custom code) + video & film**. Marka adı **maiamari.web** (09.09.2026 kullanıcı kararı). **EAXEA**, Cihan'ın GitHub kullanıcı adıdır; GitHub bağlantısını, repo adını veya deploy adresini marka adıyla otomatik değiştirme. Portfolyodaki Maiamari Studio projesi ayrı kalır.
 Tasarım dili: koyu sinematik zemin + neon (ember/magenta/violet/cyan) + WebGL parçacık
 sahnesi + glassmorphism. Motion-first ama okunaklı, hızlı ve SEO dostu.
 Referans esin: Instagram reel (web.with.ai) — "futuristic digital experience".
@@ -72,11 +72,13 @@ src/
 - **next/og**: `conic-gradient` desteklemez (Satori). OG görselinde linear/radial-gradient kullan.
 - **Tailwind v4**: yeni renk/token `globals.css` `@theme` bloğuna eklenir, ayrı config yok.
 
-## Açık işler (yapılacaklar)
-1. **Gerçek görseller**: case study'lere kapak görseli / ekran videosu (şu an metin-odaklı).
-2. **Domain + deploy**: `site.url`'i gerçek domaine çek, Vercel'e deploy et. *(Push/deploy için açık onay şart.)*
-3. **İletişim backend'i**: form şu an mailto açıyor; Resend / form servisi ile gerçek gönderime bağla.
-4. İstenirse: işler için filtre/etiket, blog, daha fazla case study.
+## Güncel devir durumu (2026-09-07)
+- Canlı adres `https://eaxea-site.vercel.app`. Özel domain henüz seçilmedi.
+- Dokuz case study mevcut; yedisinde gerçek ekran videosu ve poster, beşinde masaüstü kapağı var.
+- Medikal katalog anonim arşiv/keşif çalışması; Bass Assistant geliştirmesine ara verildi. Durumları aktif müşteri işi olarak değiştirme.
+- İletişim formu kullanıcının mevcut tercihiyle mailto taslağı + kopyalama akışı. Sunucudan gönderim yapmıyor; teslim edilmiş e-posta iddiası yok.
+- Next.js 16.3.4 ve uyumlu paketler kullanılıyor. Kalite kontrolleri ve yayın adımları `docs/RELEASE.md` içinde.
+- Commit/push/canlı yayın için açık onay gerekir. Gerçek müşteri yorumu, showreel, özel domain ve e-posta sağlayıcısı kurulumu kullanıcıya bağlı eklerdir.
 
 ## İş akışı kuralları
 - Dosya silme / destructive işlemde onay iste.

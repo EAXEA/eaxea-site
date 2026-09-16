@@ -1,0 +1,69 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { work } from '../../src/data/work.ts';
+
+const base = process.env.TEST_BASE_URL;
+const pages = ['/', '/studio', '/work', '/contact', ...work.map(item => `/work/${item.slug}`)];
+
+test('rendered branding uses maiamari.web while preserving the EAXEA GitHub identity', { skip: !base }, async () => {
+  for (const path of pages) {
+    const response = await fetch(new URL(path, base), { headers: { 'user-agent': 'Twitterbot' } });
+    assert.equal(response.status, 200, path);
+    const html = await response.text();
+    const title = html.match(/<title>([^<]+)<\/title>/)?.[1];
+    assert.match(title ?? '', /\bmaiamari\.web\b/, `${path}: page brand`);
+    assert.match(html, /property="og:site_name" content="maiamari\.web"/, `${path}: social brand`);
+    assert.match(html, /href="https:\/\/github\.com\/EAXEA"/, `${path}: original GitHub account`);
+    assert.doesNotMatch(html, /<meta[^>]*content="EAXEA[^\"]*"/, `${path}: stale brand metadata`);
+    if (path === '/') {
+      const json = html.match(/<script type="application\/ld\+json">([^<]+)<\/script>/);
+      assert.ok(json, 'structured data');
+      const data = JSON.parse(json[1]);
+      assert.equal(data.name, 'maiamari.web');
+      assert.ok(data.sameAs.includes('https://github.com/EAXEA'));
+    }
+  }
+});
+
+test('production routes, canonical URLs, social metadata and security headers', { skip: !base }, async () => {
+  for (const path of pages) {
+    const response = await fetch(new URL(path, base), { headers: { 'user-agent': 'Twitterbot' } });
+    assert.equal(response.status, 200, path);
+    assert.equal(response.headers.get('x-content-type-options'), 'nosniff');
+    assert.equal(response.headers.get('x-frame-options'), 'DENY');
+    assert.equal(response.headers.get('x-powered-by'), null);
+    const html = await response.text();
+    if (path === '/contact') {
+      assert.match(html, /<form[^>]*action="mailto:scsenocak@gmail.com"/);
+      assert.match(html, /<form[^>]*method="post"/);
+      assert.match(html, /<noscript>/);
+    }
+    assert.match(html, /<html[^>]+lang="tr"/);
+    assert.match(html, /id="main-content"/);
+    assert.equal((html.match(/<h1[ >]/g) || []).length, 1, `${path}: one h1`);
+    const canonical = html.match(/<link rel="canonical" href="([^"]+)"/);
+    assert.equal(canonical?.[1].replace(/\/$/, ''), `https://eaxea-site.vercel.app${path}`.replace(/\/$/, ''), path);
+    const ogUrl = html.match(/<meta property="og:url" content="([^"]+)"/);
+    assert.equal(ogUrl?.[1].replace(/\/$/, ''), `https://eaxea-site.vercel.app${path}`.replace(/\/$/, ''), `${path}: og url`);
+    assert.match(html, /property="og:image"/);
+    for (const match of html.matchAll(/href="(\/[^"?#]*)[^"]*"/g)) {
+      const target = match[1];
+      if (target.startsWith('/_next/') || target.includes('.')) continue;
+      assert.ok(pages.includes(target), `${path}: unknown internal link ${target}`);
+    }
+  }
+});
+
+test('sitemap, social image and unknown routes', { skip: !base }, async () => {
+  const sitemap = await fetch(new URL('/sitemap.xml', base));
+  assert.equal(sitemap.status, 200);
+  const xml = await sitemap.text();
+  assert.equal((xml.match(/<loc>/g) || []).length, pages.length);
+  for (const path of ['/missing-page-check', '/work/missing-case-check', '/work/meta-medikal']) {
+    assert.equal((await fetch(new URL(path, base))).status, 404, path);
+  }
+  const image = await fetch(new URL('/opengraph-image', base));
+  assert.equal(image.status, 200);
+  assert.match(image.headers.get('content-type'), /^image\//);
+  assert.ok((await image.arrayBuffer()).byteLength > 1000);
+});
