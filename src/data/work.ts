@@ -190,6 +190,7 @@ export const work: CaseStudy[] = [
     year: "2026",
     role: ["Design", "Data", "Motion"],
     stack: ["Node.js render motoru", "Playwright", "ffmpeg", "Fraunces + Plex Mono"],
+    url: "https://www.instagram.com/ayneninen/",
     status: "Aktif yayın",
     phase: "ongoing",
     summary:
@@ -264,12 +265,12 @@ export const work: CaseStudy[] = [
     year: "2026",
     role: ["Design", "Full-Stack", "Motion"],
     stack: ["Next.js 14", "Glassmorphism", "Adaptive Dark"],
-    status: "Konsept · onay sürecinde",
-    phase: "ongoing",
+    status: "Konsept · çalışmaya ara verildi",
+    phase: "paused",
     summary:
       "Premium bir veteriner kliniği için Apple HIG ilhamlı, güven veren bir portal konsepti.",
     intro:
-      "VetVital, Çankaya'da premium bir veteriner kliniği. Bu, sahiplerine güven ve sıcaklık hissi veren, aynı zamanda teknolojik ve modern duran bir dijital yüz için hazırladığım konsept tasarım. Şu an müşteri onay sürecinde.",
+      "VetVital, Çankaya'da premium bir veteriner kliniği. Bu, sahiplerine güven ve sıcaklık hissi veren, aynı zamanda teknolojik ve modern duran bir dijital yüz için hazırladığım konsept tasarım. Çalışmaya ara verildi; teslim edilmiş bir müşteri işi değil, konsept aşamasında kaldı.",
     challenge:
       "Tıbbi ciddiyet ile evcil hayvan sıcaklığını aynı arayüzde dengelemek; her cihazda kusursuz çalışan adaptif bir karanlık mod kurmak.",
     approach: [
@@ -306,7 +307,7 @@ export const work: CaseStudy[] = [
     challenge:
       "Yıllar içinde organik büyümüş bir katalog sitesini SEO kaybetmeden modern bir mimariye taşımak; müşterinin paket kararından bağımsız ilerleyebilen bir teknik temel kurmak.",
     approach: [
-      "Eski sitenin 118 URL'ini tarayıp 43 ürün, 10 marka ve 220 görseli yapılandırılmış envantere dönüştürdüm",
+      "Eski sitenin tüm ürün sayfalarını tarayıp yapılandırılmış bir envantere dönüştürdüm",
       "Frontend'i veri kaynağından soyutladım: ContentSource arayüzüyle statik JSON'dan Payload CMS'e rota kodu değişmeden geçilebiliyor",
       "TR prefix'siz / EN prefix'li lokalize URL şeması ve içerik modelinden üretilen hreflang kurdum",
       "11 rota şablonunu iki dilde ayağa kaldırıp sıfır-konsol-hatası şartlı Playwright smoke testleriyle kanıtladım",
@@ -317,8 +318,6 @@ export const work: CaseStudy[] = [
       "JSON-LD, dinamik sitemap ve i18n ile baştan kurulmuş SEO mimarisi",
     ],
     metrics: [
-      { label: "Keşif", value: "118 URL" },
-      { label: "Envanter", value: "43 ürün" },
       { label: "Dil", value: "TR·EN" },
     ],
     accent: "#14B8A6",
@@ -331,18 +330,18 @@ export const work: CaseStudy[] = [
     year: "2026",
     role: ["Art Direction", "Design", "Motion"],
     stack: ["Single-Page", "Scroll Motion", "Cinematic UI"],
-    status: "Tasarım aşamasında",
-    phase: "ongoing",
+    status: "Yenileme teklifi · müşteride",
+    phase: "paused",
     summary:
-      "Bir belgesel & film prodüksiyon stüdyosu için sinematik, tek sayfalık bir manifesto. (Devam eden tasarım)",
+      "2018'den beri canlı olan siteyi ben tasarlamıştım. Şimdi sinematik, tek sayfalık bir yenileme önerisi masada.",
     intro:
-      "Ancyra, belgesel ve film üreten bir prodüksiyon şirketi. Sitenin kendisinin de bir film fragmanı gibi hissetmesini hedefliyorum: az kelime, çok atmosfer. Proje hâlâ tasarım aşamasında.",
+      "Ancyra, belgesel ve film üreten bir prodüksiyon şirketi. Yayındaki ancyra.eu sitesini 2018'de ben tasarladım ve içeriğini birlikte kurduk. Şimdi sitenin kendisinin de bir film fragmanı gibi hissettiği bir yenileme önerdim: az kelime, çok atmosfer. Teklif müşteride, gerekli içeriğin toparlanmasını bekliyoruz.",
     challenge:
       "Görsel olmayan bir lansman aşamasında bile sinematik ve iddialı durmak; içeriği değil, tonu öne çıkarmak.",
     approach: [
-      "Tek sayfada sahne sahne ilerleyen sinematik bir akış kurguluyorum",
-      "Scroll'u kamera hareketi gibi kullanan geçişler tasarlıyorum",
-      "Tipografiyi başlı başına bir görsel öğeye dönüştürüyorum",
+      "Tek sayfada sahne sahne ilerleyen sinematik bir akış önerdim",
+      "Scroll'u kamera hareketi gibi kullanan geçişler tasarladım",
+      "Tipografiyi başlı başına bir görsel öğeye dönüştürdüm",
     ],
     outcome: [
       "Hedef: stüdyonun karakterini ilk saniyede veren bir açılış",
