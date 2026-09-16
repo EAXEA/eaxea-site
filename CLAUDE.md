@@ -7,7 +7,7 @@
 
 ## Ne bu?
 Cihan Şenocak'ın kişisel **creative developer** portfolyosu. Sattığı hizmetler:
-**landing page + kurumsal web sitesi** (custom code, şablon yok). Marka adı **MAIA'S WORKS** (16.09.2026 kullanıcı kararı; önceki ara değerler EAXEA ve maiamari.web geçersizdir). **EAXEA**, Cihan'ın GitHub kullanıcı adıdır; GitHub bağlantısını, repo adını veya deploy adresini marka adıyla otomatik değiştirme. Portfolyodaki Maiamari Studio projesi ayrı kalır.
+**web design + full-stack + yapay zeka destekli geliştirme (custom code) + video & film**. Marka adı **MAIA'S WORKS** (16.09.2026 kullanıcı kararı; önceki ara değerler EAXEA ve maiamari.web geçersizdir). **EAXEA**, Cihan'ın GitHub kullanıcı adıdır; GitHub bağlantısını, repo adını veya deploy adresini marka adıyla otomatik değiştirme. Portfolyodaki Maiamari Studio projesi ayrı kalır.
 Tasarım dili: koyu sinematik zemin + neon (ember/magenta/violet/cyan) + WebGL parçacık
 sahnesi + glassmorphism. Motion-first ama okunaklı, hızlı ve SEO dostu.
 Referans esin: Instagram reel (web.with.ai) — "futuristic digital experience".

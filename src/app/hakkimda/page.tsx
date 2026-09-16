@@ -9,7 +9,7 @@ import ProcessSection from "@/components/sections/ProcessSection";
 import { Spark } from "@/components/ui/Logo";
 import { capabilities, principles, productionCredits } from "@/data/studio";
 
-export const metadata: Metadata = pageMetadata("Hakkımda", `Ben ${site.founder}. Landing page ve kurumsal web sitesi tasarlayıp kodluyorum. Nasıl çalıştığım, hangi işleri aldığım ve sürecim.`, "/hakkimda");
+export const metadata: Metadata = pageMetadata("Hakkımda", `Ben ${site.founder}. Web tarafında tasarlayıp kodluyorum, video tarafında kurgu ve animasyon yapıyorum. Nasıl çalıştığım, neler yaptığım ve sürecim.`, "/hakkimda");
 
 export default function HakkimdaPage() {
   return (

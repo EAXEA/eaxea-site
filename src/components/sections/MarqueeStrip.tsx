@@ -1,14 +1,16 @@
 import Marquee from "@/components/motion/Marquee";
 
 const items = [
-  "Landing Page",
-  "Kurumsal Web",
-  "Custom Code",
+  "Web Design",
+  "Full-Stack",
+  "Yapay Zeka Destekli",
   "Next.js",
+  "WebGL",
+  "Motion",
   "SEO",
   "Erişilebilirlik",
-  "Performans",
-  "Motion",
+  "Video & Kurgu",
+  "Blender",
 ];
 
 export default function MarqueeStrip() {
