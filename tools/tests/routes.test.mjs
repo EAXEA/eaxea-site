@@ -1,10 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { work } from '../../src/data/work.ts';
+import { work, listedWork } from '../../src/data/work.ts';
 import { site } from '../../src/lib/site.ts';
 
 const base = process.env.TEST_BASE_URL;
-const pages = ['/', '/hakkimda', '/work', '/contact', ...work.map(item => `/work/${item.slug}`)];
+const pages = ['/', '/hakkimda', '/work', '/contact', ...listedWork.map(item => `/work/${item.slug}`)];
 
 // React escapes quotes and apostrophes inside attributes, so a brand such as
 // "MAIA'S WORKS" never appears literally in the markup. Decode before comparing.
@@ -81,4 +81,19 @@ test('sitemap, social image and unknown routes', { skip: !base }, async () => {
   assert.equal(image.status, 200);
   assert.match(image.headers.get('content-type'), /^image\//);
   assert.ok((await image.arrayBuffer()).byteLength > 1000);
+});
+
+test('unlisted cases stay reachable but are kept out of search and the sitemap', { skip: !base }, async () => {
+  const unlisted = work.filter(item => item.listed === false);
+  assert.ok(unlisted.length > 0, 'expected at least one unlisted case');
+  const xml = await (await fetch(new URL('/sitemap.xml', base))).text();
+  for (const item of unlisted) {
+    const path = `/work/${item.slug}`;
+    const response = await fetch(new URL(path, base), { headers: { 'user-agent': 'Twitterbot' } });
+    assert.equal(response.status, 200, `${path}: still reachable`);
+    const html = await response.text();
+    assert.match(html, /<meta name="robots" content="[^"]*noindex/, `${path}: noindex`);
+    assert.ok(!xml.includes(`${path}<`), `${path}: must not be in the sitemap`);
+    assert.ok(!pages.includes(path), `${path}: must not be in the showcase`);
+  }
 });

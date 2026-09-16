@@ -13,6 +13,8 @@ export type CaseStudy = {
   status: string;
   /** completion state — "done" = iş bitti/teslim edildi, "ongoing" = iş sürüyor */
   phase: "done" | "ongoing" | "paused" | "archived";
+  /** false keeps the case routable but out of the showcase and the sitemap */
+  listed?: boolean;
   /** one-line teaser for cards */
   summary: string;
   /** opening paragraph on the case page */
@@ -218,6 +220,7 @@ export const work: CaseStudy[] = [
   },
   {
     slug: "duygu-sinan-arsivi",
+    listed: false,
     title: "Duygu Sinan Arşivi",
     client: "Duygu Sinan",
     category: "Archive · Data Pipeline",
@@ -249,12 +252,12 @@ export const work: CaseStudy[] = [
       { label: "Seri", value: "8" },
     ],
     accent: "#D94141",
-    featured: true,
     media: true,
     mediaWide: true,
   },
   {
     slug: "vetvital",
+    listed: false,
     title: "VetVital",
     client: "VetVital Veteriner Kliniği",
     category: "Concept · Product Site",
@@ -282,12 +285,12 @@ export const work: CaseStudy[] = [
     ],
     metrics: [],
     accent: "#2FE0FF",
-    featured: true,
     media: true,
     mediaWide: true,
   },
   {
     slug: "medikal-katalog",
+    listed: false,
     title: "Medikal Katalog",
     client: "Anonim keşif çalışması",
     category: "Rebuild · Catalog Platform",
@@ -352,14 +355,21 @@ export const work: CaseStudy[] = [
   },
 ];
 
-export const featuredWork = work.filter((w) => w.featured);
+/** Cases shown in the showcase, the sitemap and prev/next navigation. */
+export const listedWork = work.filter((w) => w.listed !== false);
+
+export const featuredWork = listedWork.filter((w) => w.featured);
 
 export function getCaseStudy(slug: string): CaseStudy | undefined {
   return work.find((w) => w.slug === slug);
 }
 
+/**
+ * Walks the listed cases only. An unlisted case still renders, but it must not
+ * hand visitors a prev/next link into a page the showcase never offered.
+ */
 export function adjacentWork(slug: string) {
-  const i = work.findIndex((w) => w.slug === slug);
-  if (i === -1) return { next: work[0] };
-  return { next: work[(i + 1) % work.length] };
+  const i = listedWork.findIndex((w) => w.slug === slug);
+  if (i === -1) return { next: listedWork[0] };
+  return { next: listedWork[(i + 1) % listedWork.length] };
 }

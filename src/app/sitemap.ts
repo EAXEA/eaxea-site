@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
-import { work } from "@/data/work";
+import { listedWork } from "@/data/work";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = site.url.replace(/\/$/, "");
@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: path === "" ? 1 : 0.8,
   }));
 
-  const cases = work.map((w) => ({
+  const cases = listedWork.map((w) => ({
     url: `${base}/work/${w.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,

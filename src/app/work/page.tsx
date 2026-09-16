@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
-import { work } from "@/data/work";
+import { listedWork } from "@/data/work";
 import WorkCard from "@/components/work/WorkCard";
 import PageHeader from "@/components/ui/PageHeader";
 
@@ -17,7 +17,7 @@ export default function WorkPage() {
 
       <section className="mx-auto max-w-[1400px] px-5 pb-32 md:px-8">
         <div>
-          {work.map((study, i) => (
+          {listedWork.map((study, i) => (
             <WorkCard key={study.slug} study={study} index={i} />
           ))}
           <div className="border-t border-line" />
