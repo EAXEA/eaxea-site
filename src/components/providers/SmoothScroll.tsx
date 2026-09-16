@@ -25,6 +25,7 @@ export default function SmoothScroll({
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
       touchMultiplier: 1.6,
+      anchors: true,
     });
     lenisRef.current = lenis;
 
@@ -50,12 +51,19 @@ export default function SmoothScroll({
   // Use Lenis' own scrollTo so its internal position stays in sync (a raw
   // window.scrollTo would desync the smooth-scroll state).
   useEffect(() => {
-    if (lenisRef.current) {
-      lenisRef.current.scrollTo(0, { immediate: true });
-    } else {
-      window.scrollTo(0, 0);
-    }
-    ScrollTrigger.refresh();
+    const frame = requestAnimationFrame(() => {
+      let target: HTMLElement | null = null;
+      try { target = document.getElementById(decodeURIComponent(window.location.hash.slice(1))); } catch { /* Invalid fragments fall back to page start. */ }
+      if (lenisRef.current) {
+        lenisRef.current.scrollTo(target ?? 0, { immediate: true });
+      } else if (target) {
+        target.scrollIntoView();
+      } else {
+        window.scrollTo(0, 0);
+      }
+      ScrollTrigger.refresh();
+    });
+    return () => cancelAnimationFrame(frame);
   }, [pathname]);
 
   return <>{children}</>;

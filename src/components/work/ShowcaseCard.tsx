@@ -1,10 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef } from "react";
 import type { CaseStudy } from "@/data/work";
 import GradientCover from "@/components/work/GradientCover";
-import { prefersReducedMotion } from "@/lib/gsap";
+import { useShowcaseVideo } from "@/hooks/useShowcaseVideo";
 
 /**
  * Showcase card. The product capture autoplays (muted, looping) as soon as it
@@ -19,16 +18,10 @@ export default function ShowcaseCard({
   study: CaseStudy;
   index: number;
 }) {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-
-  useEffect(() => {
-    const v = videoRef.current;
-    if (!v || prefersReducedMotion()) return;
-    // muted autoplay needs no user gesture; start as soon as the card mounts.
-    v.play().catch(() => {});
-  }, []);
+  const { ref: videoRef, pausedByUser, toggle } = useShowcaseVideo(`/showcase/${study.slug}.webm`);
 
   return (
+    <div className="relative">
     <Link
       href={`/work/${study.slug}`}
       className="group block"
@@ -41,11 +34,11 @@ export default function ShowcaseCard({
             ref={videoRef}
             className="absolute inset-0 size-full object-cover"
             poster={`/showcase/${study.slug}.webp`}
-            src={`/showcase/${study.slug}.webm`}
             muted
             loop
             playsInline
-            preload="auto"
+            preload="none"
+            aria-hidden="true"
           />
         ) : (
           <GradientCover accent={study.accent} className="absolute inset-0" />
@@ -89,7 +82,10 @@ export default function ShowcaseCard({
         <p className="mt-0.5 truncate text-[0.65rem] text-muted">
           {study.category}
         </p>
+        <p className="mt-1 text-[0.65rem] text-muted">{study.status}</p>
       </div>
     </Link>
+    {study.media && <button type="button" onClick={toggle} aria-pressed={pausedByUser} aria-label={`${study.title}: önizlemeyi ${pausedByUser ? "sürdür" : "duraklat"}`} className="absolute left-2 top-2 z-10 flex size-11 items-center justify-center rounded-full border border-white/20 bg-black/80 text-white md:left-auto md:right-3 md:top-14 motion-reduce:hidden">{pausedByUser ? "▶" : "Ⅱ"}</button>}
+    </div>
   );
 }

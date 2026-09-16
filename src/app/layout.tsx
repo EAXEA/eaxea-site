@@ -79,10 +79,11 @@ export default function RootLayout({
       className={`${display.variable} ${sans.variable} ${mono.variable} grain`}
     >
       <body className="min-h-screen antialiased">
+        <a href="#main-content" className="sr-only fixed left-4 top-4 z-[80] rounded-full bg-fg px-5 py-3 text-bg focus:not-sr-only">İçeriğe geç</a>
         <SmoothScroll>
           <Cursor />
           <Nav />
-          <main>{children}</main>
+          <main id="main-content" tabIndex={-1}>{children}</main>
           <Footer />
         </SmoothScroll>
       </body>

@@ -16,7 +16,7 @@ export default function PageHeader({
       <AnimatedHeading
         as="h1"
         text={title}
-        className="text-[clamp(2.8rem,10vw,8rem)] uppercase"
+        className="text-[clamp(2.5rem,10vw,8rem)] uppercase"
       />
       {intro && (
         <Reveal delay={0.1}>

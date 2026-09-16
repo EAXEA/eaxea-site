@@ -14,7 +14,7 @@
 
   --color-fg: #ededf2;
   --color-muted: #8b8b9c;
-  --color-faint: #5a5a6a;
+  --color-faint: #8b8b9c;
 
   --color-ember: #ff5c28;
   --color-magenta: #ff2d9c;
@@ -259,6 +259,20 @@ html.lenis body {
   }
   [data-reveal] {
     opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+  [data-reveal-item] {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+  [data-word],
+  [data-hero-line] > span,
+  [data-hero-copy],
+  [data-hero-fade] {
+    opacity: 1 !important;
+    visibility: visible !important;
     transform: none !important;
   }
 }

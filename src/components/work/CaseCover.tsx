@@ -1,10 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
 import type { CaseStudy } from "@/data/work";
 import GradientCover from "@/components/work/GradientCover";
-import { prefersReducedMotion } from "@/lib/gsap";
+import { useShowcaseVideo } from "@/hooks/useShowcaseVideo";
 
 /**
  * Case-page cover band. Three tiers:
@@ -16,13 +15,7 @@ import { prefersReducedMotion } from "@/lib/gsap";
  * poster under reduced motion.
  */
 export default function CaseCover({ study }: { study: CaseStudy }) {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-
-  useEffect(() => {
-    const v = videoRef.current;
-    if (!v || prefersReducedMotion()) return;
-    v.play().catch(() => {});
-  }, []);
+  const { ref: videoRef, pausedByUser, toggle } = useShowcaseVideo(`/showcase/${study.slug}.webm`);
 
   if (!study.media) {
     return (
@@ -86,12 +79,13 @@ export default function CaseCover({ study }: { study: CaseStudy }) {
         }
         style={{ aspectRatio: "9 / 16" }}
         poster={`/showcase/${study.slug}.webp`}
-        src={`/showcase/${study.slug}.webm`}
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="none"
+        aria-label={`${study.title} ekran önizlemesi`}
       />
+      <button type="button" onClick={toggle} aria-pressed={pausedByUser} aria-label={`Önizlemeyi ${pausedByUser ? "sürdür" : "duraklat"}`} className="absolute right-4 top-4 z-10 min-h-11 rounded-full border border-white/20 bg-black/80 px-4 text-sm text-white motion-reduce:hidden">{pausedByUser ? "Oynat ▶" : "Duraklat Ⅱ"}</button>
 
       <span className="absolute bottom-4 left-4 font-mono text-[0.6rem] uppercase tracking-widest text-white/65">
         {study.category} · {study.year}

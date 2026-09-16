@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Logo from "@/components/ui/Logo";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/cn";
@@ -12,6 +12,7 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
+  const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
     let last = window.scrollY;
@@ -25,20 +26,36 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [open]);
 
-  // Lock scroll while the mobile menu is open.
+  // Native dialog supplies focus containment, inert background and Escape.
   useEffect(() => {
-    document.documentElement.style.overflow = open ? "hidden" : "";
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+    const previousOverflow = document.documentElement.style.overflow;
+    if (open) {
+      dialog.showModal();
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      dialog.close();
+    }
     return () => {
-      document.documentElement.style.overflow = "";
+      dialog.close();
+      document.documentElement.style.overflow = previousOverflow;
     };
   }, [open]);
+
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 768px)");
+    const onResize = () => { if (desktop.matches) setOpen(false); };
+    desktop.addEventListener("change", onResize);
+    return () => desktop.removeEventListener("change", onResize);
+  }, []);
 
   return (
     <>
       <header
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-transform duration-500",
-          hidden ? "-translate-y-full" : "translate-y-0"
+          hidden && !open ? "-translate-y-full focus-within:translate-y-0" : "translate-y-0"
         )}
       >
         <div
@@ -49,13 +66,14 @@ export default function Nav() {
         >
           <Logo />
 
-          <nav className="hidden items-center gap-1 md:flex">
+          <nav aria-label="Ana menü" className="hidden items-center gap-1 md:flex">
             {site.nav.map((item) => {
               const active = pathname.startsWith(item.href);
               return (
                 <Link
                   key={item.href}
                   href={item.href}
+                  aria-current={active ? "page" : undefined}
                   className={cn(
                     "rounded-full px-4 py-2 text-sm transition-colors",
                     active
@@ -80,6 +98,7 @@ export default function Nav() {
             className="relative z-50 flex size-10 flex-col items-center justify-center gap-1.5 md:hidden"
             aria-label={open ? "Menüyü kapat" : "Menüyü aç"}
             aria-expanded={open}
+            aria-controls="mobile-menu"
           >
             <span
               className={cn(
@@ -97,23 +116,37 @@ export default function Nav() {
         </div>
       </header>
 
-      {/* Mobile overlay — inert when closed so it stays out of the tab order */}
-      <div
-        inert={!open}
-        className={cn(
-          "fixed inset-0 z-40 flex flex-col justify-center bg-bg px-8 transition-all duration-500 md:hidden",
-          open
-            ? "pointer-events-auto opacity-100"
-            : "pointer-events-none opacity-0"
-        )}
+      <dialog
+        ref={dialogRef}
+        id="mobile-menu"
+        aria-label="Mobil menü"
+        onCancel={() => setOpen(false)}
+        onClose={() => setOpen(false)}
+        onKeyDown={(event) => {
+          if (event.key !== "Tab") return;
+          const targets = event.currentTarget.querySelectorAll<HTMLElement>("button, a[href]");
+          const first = targets[0];
+          const last = targets[targets.length - 1];
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last?.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first?.focus();
+          }
+        }}
+        data-lenis-prevent
+        className="fixed inset-0 m-0 h-dvh max-h-none w-full max-w-none border-0 bg-bg px-8 text-fg backdrop:bg-bg open:flex open:flex-col open:justify-center"
       >
-        <nav className="flex flex-col gap-2">
+        <button type="button" autoFocus onClick={() => setOpen(false)} className="absolute right-5 top-5 min-h-11 rounded-full border border-line-strong px-5 text-sm" aria-label="Menüyü kapat">Kapat ×</button>
+        <nav aria-label="Mobil ana menü" className="flex flex-col gap-2">
           {[{ label: "Ana sayfa", href: "/" }, ...site.nav].map((item, i) => (
             <Link
               key={item.href}
               href={item.href}
+              aria-current={(item.href === "/" ? pathname === "/" : pathname.startsWith(item.href)) ? "page" : undefined}
               onClick={() => setOpen(false)}
-              className="display text-5xl uppercase text-fg transition-colors hover:text-ember"
+              className="display text-[clamp(2rem,10vw,3rem)] uppercase text-fg transition-colors hover:text-ember"
               style={{
                 transform: open ? "translateY(0)" : "translateY(20px)",
                 opacity: open ? 1 : 0,
@@ -127,7 +160,7 @@ export default function Nav() {
         <div className="mt-12 font-mono text-xs uppercase tracking-widest text-muted">
           {site.email}
         </div>
-      </div>
+      </dialog>
     </>
   );
 }
