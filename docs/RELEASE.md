@@ -1,8 +1,8 @@
-# maiamari.web release checklist
+# MAIA'S WORKS release checklist
 
 ## Product contract
 
-- maiamari.web portfolio: home, studio/services, nine case studies and contact. EAXEA remains the founder's GitHub username; repository and deployment addresses are unchanged.
+- MAIA'S WORKS portfolio: home, about/services, nine case studies and contact. EAXEA remains the founder's GitHub username; repository and deployment addresses are unchanged.
 - Preserve the cinematic identity, real project media, Turkish copy and reduced-motion support.
 - Contact prepares or copies a mail draft. It does not send or store messages on a backend.
 - Medical catalog is an anonymous archived discovery; Bass Assistant development is paused.

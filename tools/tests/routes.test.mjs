@@ -4,7 +4,7 @@ import { work } from '../../src/data/work.ts';
 import { site } from '../../src/lib/site.ts';
 
 const base = process.env.TEST_BASE_URL;
-const pages = ['/', '/studio', '/work', '/contact', ...work.map(item => `/work/${item.slug}`)];
+const pages = ['/', '/hakkimda', '/work', '/contact', ...work.map(item => `/work/${item.slug}`)];
 
 // React escapes quotes and apostrophes inside attributes, so a brand such as
 // "MAIA'S WORKS" never appears literally in the markup. Decode before comparing.

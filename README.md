@@ -1,8 +1,8 @@
-# maiamari.web
+# MAIA'S WORKS
 
 Cihan Şenocak'ın web, ürün ve video çalışmalarını bir araya getiren bağımsız stüdyo portföyü.
 
-Marka adı **maiamari.web**. **EAXEA**, Cihan'ın GitHub kullanıcı adıdır; `https://github.com/EAXEA` bağlantısı ve mevcut repo/proje adları korunur. Alan adı ve canlı yayın adresi ayrı ayarlardır; marka değişikliği bunları otomatik değiştirmez.
+Marka adı **MAIA'S WORKS**. **EAXEA**, Cihan'ın GitHub kullanıcı adıdır; `https://github.com/EAXEA` bağlantısı ve mevcut repo/proje adları korunur. Alan adı ve canlı yayın adresi ayrı ayarlardır; marka değişikliği bunları otomatik değiştirmez.
 
 ## Çalıştırma
 

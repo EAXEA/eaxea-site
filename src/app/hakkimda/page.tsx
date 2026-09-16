@@ -9,14 +9,14 @@ import ProcessSection from "@/components/sections/ProcessSection";
 import { Spark } from "@/components/ui/Logo";
 import { capabilities, principles, productionCredits } from "@/data/studio";
 
-export const metadata: Metadata = pageMetadata("Stüdyo", `${site.name} · Web tasarımı, full-stack geliştirme, hızlı MVP ve video prodüksiyonunu bir araya getiren bağımsız stüdyo.`, "/studio");
+export const metadata: Metadata = pageMetadata("Hakkımda", `Ben ${site.founder}. Landing page ve kurumsal web sitesi tasarlayıp kodluyorum. Nasıl çalıştığım, hangi işleri aldığım ve sürecim.`, "/hakkimda");
 
-export default function StudioPage() {
+export default function HakkimdaPage() {
   return (
     <>
       <PageHeader
-        eyebrow="[ Stüdyo ]"
-        title="Creative development"
+        eyebrow="[ Hakkımda ]"
+        title="Nasıl çalışıyorum"
         intro={site.description}
       />
 
@@ -24,12 +24,12 @@ export default function StudioPage() {
       <section className="mx-auto grid max-w-[1400px] gap-12 px-5 pb-24 md:grid-cols-12 md:px-8 md:pb-32">
         <Reveal className="md:col-span-7">
           <p className="text-2xl leading-snug text-fg/90 md:text-3xl">
-            Ben {site.founder}. Tasarımla kodun, sanatla mühendisliğin kesiştiği
-            yerde çalışıyorum.{" "}
+            Ben {site.founder}. Tasarımla kodun kesiştiği yerde
+            çalışıyorum.{" "}
             <span className="text-muted">
-              {site.name}, markaları dijitalde öne çıkaran bağımsız bir
-              creative development pratiği. Fikirden çalışan, hızlı ve hatırda
-              kalan ürünlere kadar tek elden ilerlerim.
+              {site.name} tek kişilik bağımsız bir çalışma. Siteyi ben
+              tasarlıyor, ben kodluyor, ben teslim ediyorum. Arada ajans,
+              şablon ya da devir teslim yok.
             </span>
           </p>
 
@@ -83,7 +83,7 @@ export default function StudioPage() {
         </div>
       </section>
 
-      {/* Production credits — proof behind the Video & Film service */}
+      {/* Production credits: supporting background, not a service offer */}
       <section
         id="ekran-gecmisi"
         className="mx-auto max-w-[1400px] scroll-mt-24 px-5 py-24 md:px-8 md:py-32"

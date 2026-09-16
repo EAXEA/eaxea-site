@@ -2,6 +2,10 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  async redirects() {
+    // The about page moved from /studio to /hakkimda with the brand change.
+    return [{ source: "/studio", destination: "/hakkimda", permanent: true }];
+  },
   async headers() {
     return [{
       source: "/:path*",

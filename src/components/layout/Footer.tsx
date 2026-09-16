@@ -71,7 +71,7 @@ export default function Footer() {
 
         <div className="flex flex-col items-start justify-between gap-4 py-8 font-mono text-xs uppercase tracking-widest text-faint md:flex-row md:items-center">
           <span>
-            © {new Date().getFullYear()} <span className="normal-case">{site.name}</span> · {site.founder}
+            © {new Date().getFullYear()} <span className="normal-case">{site.name}</span> · {site.legalName} · {site.founder}
           </span>
           <span>{site.location}</span>
         </div>

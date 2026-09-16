@@ -35,7 +35,7 @@ test('closed and paused projects cannot be represented as active delivery', () =
 test('every service proof resolves to an existing page or case', () => {
   for (const service of services) {
     const path = service.proof.href.split('#')[0];
-    assert.ok(path === '/studio' || getCaseStudy(path.replace('/work/', '')), service.id);
+    assert.ok(path === '/hakkimda' || getCaseStudy(path.replace('/work/', '')), service.id);
   }
 });
 

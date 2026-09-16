@@ -4,7 +4,7 @@ import { work } from "@/data/work";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = site.url.replace(/\/$/, "");
-  const routes = ["", "/studio", "/work", "/contact"].map((path) => ({
+  const routes = ["", "/hakkimda", "/work", "/contact"].map((path) => ({
     url: `${base}${path}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,

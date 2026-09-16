@@ -74,6 +74,6 @@ export const services: Service[] = [
       "Animasyon & motion overlay (Blender)",
     ],
     accent: "var(--color-magenta)",
-    proof: { label: "Ekran geçmişini gör", href: "/studio#ekran-gecmisi" },
+    proof: { label: "Ekran geçmişini gör", href: "/hakkimda#ekran-gecmisi" },
   },
 ];

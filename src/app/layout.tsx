@@ -32,7 +32,7 @@ const mono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} · Creative Developer`,
+    default: `${site.name} · ${site.role}`,
     template: `%s · ${site.name}`,
   },
   description: site.description,
@@ -54,12 +54,12 @@ export const metadata: Metadata = {
     locale: site.locale,
     url: site.url,
     siteName: site.name,
-    title: `${site.name} · Creative Developer`,
+    title: `${site.name} · ${site.role}`,
     description: site.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} · Creative Developer`,
+    title: `${site.name} · ${site.role}`,
     description: site.description,
   },
   robots: { index: true, follow: true },

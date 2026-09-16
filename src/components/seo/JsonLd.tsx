@@ -20,12 +20,12 @@ export default function JsonLd() {
     areaServed: "TR",
     knowsAbout: [
       "Web Design",
-      "Full-Stack Development",
-      "Motion Design",
-      "AI-Assisted Development",
+      "Landing Page Design",
+      "Corporate Website Development",
       "Custom Web Development",
-      "Video Production",
-      "Video Editing (Adobe Premiere)",
+      "Next.js",
+      "Search Engine Optimization",
+      "Web Accessibility",
     ],
     sameAs: site.socials
       .filter((s) => s.href.startsWith("http"))
