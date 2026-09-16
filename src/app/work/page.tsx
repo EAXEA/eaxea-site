@@ -1,14 +1,10 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { work } from "@/data/work";
 import WorkCard from "@/components/work/WorkCard";
 import PageHeader from "@/components/ui/PageHeader";
 
-export const metadata: Metadata = {
-  title: "İşler",
-  description:
-    "Seçili işler. Marka siteleri, ürün arayüzleri ve deneysel web deneyimleri.",
-  alternates: { canonical: "/work" },
-};
+export const metadata: Metadata = pageMetadata("İşler", "Seçili işler. Marka siteleri, ürün arayüzleri ve deneysel web deneyimleri.", "/work");
 
 export default function WorkPage() {
   return (

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { site } from "@/lib/site";
 import PageHeader from "@/components/ui/PageHeader";
 import Reveal from "@/components/motion/Reveal";
@@ -8,12 +9,7 @@ import ProcessSection from "@/components/sections/ProcessSection";
 import { Spark } from "@/components/ui/Logo";
 import { capabilities, principles, productionCredits } from "@/data/studio";
 
-export const metadata: Metadata = {
-  title: "Stüdyo",
-  description:
-    "EAXEA · premium, motion-first dijital deneyimler üreten bağımsız bir creative development stüdyosu. Web design, full-stack, hızlı MVP ve video prodüksiyon.",
-  alternates: { canonical: "/studio" },
-};
+export const metadata: Metadata = pageMetadata("Stüdyo", `${site.name} · Web tasarımı, full-stack geliştirme, hızlı MVP ve video prodüksiyonunu bir araya getiren bağımsız stüdyo.`, "/studio");
 
 export default function StudioPage() {
   return (

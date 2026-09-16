@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { site } from "@/lib/site";
 import PageHeader from "@/components/ui/PageHeader";
 import Reveal from "@/components/motion/Reveal";
 import ContactForm from "@/components/sections/ContactForm";
 import PulseDot from "@/components/ui/PulseDot";
 
-export const metadata: Metadata = {
-  title: "İletişim",
-  description: "Bir proje fikrin mi var? Konuşalım.",
-  alternates: { canonical: "/contact" },
-};
+export const metadata: Metadata = pageMetadata("İletişim", "Bir proje fikrin mi var? Konuşalım.", "/contact");
 
 export default function ContactPage() {
   return (

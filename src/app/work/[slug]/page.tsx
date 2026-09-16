@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { work, getCaseStudy, adjacentWork } from "@/data/work";
-import { site } from "@/lib/site";
+import { pageMetadata } from "@/lib/metadata";
 import Reveal from "@/components/motion/Reveal";
 import AnimatedHeading from "@/components/motion/AnimatedHeading";
 import Button from "@/components/ui/Button";
@@ -19,15 +19,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const study = getCaseStudy(slug);
   if (!study) return {};
-  return {
-    title: study.title,
-    description: study.summary,
-    alternates: { canonical: `/work/${slug}` },
-    openGraph: {
-      title: `${study.title} · ${site.name}`,
-      description: study.summary,
-    },
-  };
+  return pageMetadata(study.title, study.summary, `/work/${slug}`);
 }
 
 export default async function CaseStudyPage({ params }: Params) {
