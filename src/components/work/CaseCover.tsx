@@ -39,6 +39,7 @@ export default function CaseCover({ study }: { study: CaseStudy }) {
         alt=""
         aria-hidden
         fill
+        priority
         sizes="100vw"
         className="scale-110 object-cover blur-2xl brightness-[0.45]"
       />
