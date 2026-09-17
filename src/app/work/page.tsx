@@ -4,7 +4,13 @@ import { listedWork } from "@/data/work";
 import WorkCard from "@/components/work/WorkCard";
 import PageHeader from "@/components/ui/PageHeader";
 
-export const metadata: Metadata = pageMetadata("İşler", "Seçili işler. Marka siteleri, ürün arayüzleri ve deneysel web deneyimleri.", "/work");
+// The count comes from the data so the description cannot go stale when a
+// case is added or unlisted.
+export const metadata: Metadata = pageMetadata(
+  "Web ve E-Ticaret Projeleri",
+  `${listedWork.length} seçili proje: e-ticaret altyapısı, eğitim platformu, landing page ve tarayıcı eklentisi. Her biri tasarımdan koda tek elden üretildi.`,
+  "/work",
+);
 
 export default function WorkPage() {
   return (

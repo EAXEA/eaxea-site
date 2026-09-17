@@ -71,13 +71,13 @@ export default function Hero() {
 
         <h1 className="display text-[clamp(2.8rem,11vw,9.5rem)] uppercase">
           <span data-hero-line className="block overflow-hidden">
-            <span className="block">Dijital</span>
+            <span className="block">Web siteleri</span>
           </span>
           <span data-hero-line className="block overflow-hidden">
-            <span className="block gradient-text">deneyimler</span>
+            <span className="block gradient-text">tasarlar,</span>
           </span>
           <span data-hero-line className="block overflow-hidden">
-            <span className="block">tasarlarım.</span>
+            <span className="block">kodlarım.</span>
           </span>
         </h1>
 

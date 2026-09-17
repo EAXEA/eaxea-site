@@ -14,7 +14,7 @@ export const services: Service[] = [
   {
     id: "web-design",
     index: "01",
-    title: "Web Design",
+    title: "Web Tasarımı",
     tagline: "Premium, motion-first arayüzler",
     description:
       "Markanın karakterini taşıyan, cesur ama okunaklı arayüzler. Tipografi, ritim ve hareketi tek bir sinematik dile çeviririm.",
@@ -30,7 +30,7 @@ export const services: Service[] = [
   {
     id: "full-stack",
     index: "02",
-    title: "Full-Stack",
+    title: "Web Geliştirme",
     tagline: "Tasarımdan production'a uçtan uca",
     description:
       "Next.js, TypeScript ve modern altyapıyla hızlı, güvenli ve sürdürülebilir ürünler. Hazır tema ya da şablon değil; tasarımı piksel hassasiyetinde, projene özel yazılmış koda döker, deploy ve performansa kadar sahiplenirim.",
@@ -47,7 +47,7 @@ export const services: Service[] = [
   {
     id: "hizli-mvp",
     index: "03",
-    title: "Hızlı MVP",
+    title: "Hızlı Prototip",
     tagline: "Fikirden çalışan ürüne, günler içinde",
     description:
       "Fikirden çalışan ürüne en kısa yoldan. Yapay zeka destekli iş akışlarıyla prototip, MVP ve deneysel arayüzleri günler içinde yayına alırım. Hepsi şablon değil, gerçek custom code; kalite ve kontrolü kaybetmeden.",
@@ -63,7 +63,7 @@ export const services: Service[] = [
   {
     id: "video-film",
     index: "04",
-    title: "Video & Film",
+    title: "Video ve Kurgu",
     tagline: "Belgeselden kurumsal filme post-prodüksiyon",
     description:
       "Web'den önce kurgu masasındaydım: belgesel, kurumsal video ve tanıtım içerikleri. Adobe Premiere ile kurgu, ses ve renk; Blender ile animasyon ve teknik overlay. Hikayeyi hangi formatta olursa olsun ekrana taşırım.",
