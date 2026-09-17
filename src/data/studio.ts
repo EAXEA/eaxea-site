@@ -10,7 +10,8 @@ export const capabilities = [
   "Erişilebilirlik",
   "Yapay Zeka Destekli Geliştirme",
   "Video & Kurgu / Premiere",
-  "Belgesel Prodüksiyon",
+  "Belgesel Kurgusu",
+  "Video Prodüksiyon",
   "Animasyon / Blender",
 ];
 

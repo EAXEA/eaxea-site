@@ -29,9 +29,11 @@ export default function HakkimdaPage() {
             Ben {site.founder}. Tasarımla kodun kesiştiği yerde
             çalışıyorum.{" "}
             <span className="text-muted">
-              {site.name} tek kişilik bağımsız bir çalışma. Siteyi ben
-              tasarlıyor, ben kodluyor, ben teslim ediyorum. Arada ajans,
-              şablon ya da devir teslim yok.
+              {site.name} tek kişilik bağımsız bir stüdyo. Web işini ben
+              tasarlıyor, ben kodluyor, ben teslim ediyorum. Çekim ya da
+              prodüksiyon gerektiren işlerde birlikte çalıştığım ekibi
+              kurarım; muhatabın baştan sona ben olurum. Arada ajans, şablon
+              ya da devir teslim yok.
             </span>
           </p>
 
