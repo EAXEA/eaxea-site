@@ -47,6 +47,13 @@ test('production routes, canonical URLs, social metadata and security headers', 
     assert.equal(response.headers.get('x-content-type-options'), 'nosniff');
     assert.equal(response.headers.get('x-frame-options'), 'DENY');
     assert.equal(response.headers.get('x-powered-by'), null);
+    // The dev server adds 'unsafe-eval' for React's debugging build. A production
+    // response carrying it would mean the development branch leaked into the
+    // deployed policy, so this suite -- which only ever runs against a built
+    // server -- is the right place to pin that down.
+    const csp = response.headers.get('content-security-policy') ?? '';
+    assert.ok(csp.includes("default-src 'self'"), `${path}: CSP must pin default-src`);
+    assert.ok(!csp.includes('unsafe-eval'), `${path}: production CSP must not allow eval`);
     const html = await response.text();
     if (path === '/contact') {
       // The form never posted anywhere useful: a mailto action with method=post
