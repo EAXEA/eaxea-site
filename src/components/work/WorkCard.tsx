@@ -33,14 +33,17 @@ export default function WorkCard({
         </span>
 
         <div className="flex-1">
-          <h3
+          {/* h2, not h3: the work index has no section heading between the page
+              h1 and these titles, and skipping a level breaks the outline that
+              screen reader users navigate by. */}
+          <h2
             className={cn(
               "display text-[clamp(2rem,6vw,4.5rem)] uppercase leading-[0.95]",
               "text-fg transition-transform duration-500 md:group-hover:translate-x-3"
             )}
           >
             {study.title}
-          </h3>
+          </h2>
         </div>
 
         <div className="hidden flex-col items-end gap-1 text-right md:flex">
