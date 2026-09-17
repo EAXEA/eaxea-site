@@ -1,16 +1,24 @@
 import { site } from "@/lib/site";
+import JsonLdScript from "./JsonLdScript";
 
-/** Person + ProfessionalService structured data for richer search results. */
+/** ProfessionalService structured data for richer search results. */
 export default function JsonLd() {
   const data = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
+    "@id": `${site.url}/#business`,
     name: site.name,
     description: site.description,
     url: site.url,
     email: site.email,
-    founder: { "@type": "Person", name: site.founder },
-    // Consistent with the site's "Ankara · Remote" positioning — Ankara-based,
+    // Carries the name inline so this node stands alone, and the @id so it
+    // resolves to the full Person node on /hakkimda.
+    founder: {
+      "@type": "Person",
+      "@id": `${site.url}/hakkimda#person`,
+      name: site.founder,
+    },
+    // Consistent with the site's "Ankara · Remote" positioning: Ankara-based,
     // serving clients remotely across Türkiye.
     address: {
       "@type": "PostalAddress",
@@ -36,10 +44,5 @@ export default function JsonLd() {
       .map((s) => s.href),
   };
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }}
-    />
-  );
+  return <JsonLdScript data={data} />;
 }

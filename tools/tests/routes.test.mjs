@@ -106,3 +106,32 @@ test('unlisted cases stay reachable but are kept out of search and the sitemap',
     assert.ok(!pages.includes(path), `${path}: must not be in the showcase`);
   }
 });
+
+test('structured data covers the business, the founder and case breadcrumbs', { skip: !base }, async () => {
+  const blocks = async path => {
+    const response = await fetch(new URL(path, base), { headers: { 'user-agent': 'Twitterbot' } });
+    const html = await response.text();
+    return [...html.matchAll(/<script type="application\/ld\+json">([^<]+)<\/script>/g)]
+      .map(match => JSON.parse(match[1]));
+  };
+
+  const business = (await blocks('/')).find(item => item['@type'] === 'ProfessionalService');
+  assert.ok(business, 'home: ProfessionalService node');
+  assert.equal(business.founder['@id'], `${site.url}/hakkimda#person`, 'founder points at the Person node');
+
+  const person = (await blocks('/hakkimda')).find(item => item['@type'] === 'Person');
+  assert.ok(person, '/hakkimda: Person node');
+  assert.equal(person['@id'], business.founder['@id'], 'the reference from the home page resolves here');
+  assert.equal(person.name, site.founder);
+  assert.equal(person.worksFor['@id'], business['@id'], 'Person links back to the business');
+  assert.ok(person.sameAs.includes('https://github.com/EAXEA'), 'Person keeps the verifiable profile link');
+
+  for (const item of listedWork) {
+    const path = `/work/${item.slug}`;
+    const crumbs = (await blocks(path)).find(node => node['@type'] === 'BreadcrumbList');
+    assert.ok(crumbs, `${path}: BreadcrumbList node`);
+    assert.deepEqual(crumbs.itemListElement.map(entry => entry.position), [1, 2, 3], `${path}: trail depth`);
+    assert.equal(crumbs.itemListElement.at(-1).name, item.title, `${path}: leaf name`);
+    assert.equal(crumbs.itemListElement.at(-1).item, new URL(path, site.url).href, `${path}: leaf url`);
+  }
+});

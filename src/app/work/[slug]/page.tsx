@@ -8,6 +8,7 @@ import AnimatedHeading from "@/components/motion/AnimatedHeading";
 import Button from "@/components/ui/Button";
 import CaseCover from "@/components/work/CaseCover";
 import PhaseBadge from "@/components/work/PhaseBadge";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -35,6 +36,13 @@ export default async function CaseStudyPage({ params }: Params) {
 
   return (
     <article style={{ ["--accent" as string]: study.accent }}>
+      <BreadcrumbJsonLd
+        trail={[
+          { name: "Ana sayfa", path: "/" },
+          { name: "İşler", path: "/work" },
+          { name: study.title, path: `/work/${slug}` },
+        ]}
+      />
       {/* Hero */}
       <header className="relative overflow-hidden px-5 pb-16 pt-36 md:px-8 md:pb-24 md:pt-44">
         <div

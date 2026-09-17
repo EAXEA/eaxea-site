@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
 import { site } from "@/lib/site";
 import PageHeader from "@/components/ui/PageHeader";
+import PersonJsonLd from "@/components/seo/PersonJsonLd";
 import Reveal from "@/components/motion/Reveal";
 import AnimatedHeading from "@/components/motion/AnimatedHeading";
 import ServicesSection from "@/components/sections/ServicesSection";
@@ -14,6 +15,7 @@ export const metadata: Metadata = pageMetadata("Hakkımda", `Ben ${site.founder}
 export default function HakkimdaPage() {
   return (
     <>
+      <PersonJsonLd />
       <PageHeader
         eyebrow="[ Hakkımda ]"
         title="Nasıl çalışıyorum"
