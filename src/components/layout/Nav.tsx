@@ -94,8 +94,9 @@ export default function Nav() {
           </nav>
 
           <button
+            type="button"
             onClick={() => setOpen((v) => !v)}
-            className="relative z-50 flex size-10 flex-col items-center justify-center gap-1.5 md:hidden"
+            className="relative z-50 flex size-11 flex-col items-center justify-center gap-1.5 md:hidden"
             aria-label={open ? "Menüyü kapat" : "Menüyü aç"}
             aria-expanded={open}
             aria-controls="mobile-menu"
