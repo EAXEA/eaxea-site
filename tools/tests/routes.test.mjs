@@ -86,6 +86,16 @@ test('sitemap, social image and unknown routes', { skip: !base }, async () => {
   for (const path of ['/missing-page-check', '/work/missing-case-check', '/work/meta-medikal']) {
     assert.equal((await fetch(new URL(path, base))).status, 404, path);
   }
+  for (const item of listedWork) {
+    const path = `/work/${item.slug}`;
+    const card = await fetch(new URL(`${path}/opengraph-image`, base));
+    assert.equal(card.status, 200, `${path}: own share card`);
+    assert.match(card.headers.get('content-type'), /^image\//, `${path}: share card type`);
+    assert.ok((await card.arrayBuffer()).byteLength > 1000, `${path}: share card is not empty`);
+    const html = await (await fetch(new URL(path, base), { headers: { "user-agent": "Twitterbot" } })).text();
+    const og = html.match(/<meta property="og:image" content="([^"]+)"/);
+    assert.ok(og?.[1].includes(`${path}/opengraph-image`), `${path}: points at its own card, got ${og?.[1]}`);
+  }
   const image = await fetch(new URL('/opengraph-image', base));
   assert.equal(image.status, 200);
   assert.match(image.headers.get('content-type'), /^image\//);

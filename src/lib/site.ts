@@ -8,6 +8,9 @@ export const site = {
   // TODO: replace with the exact registered title and address before launch.
   legalName: "Maiamari",
   role: "Tasarım, kod ve kurgu",
+  // The hero H1, one entry per masked line. The share image renders the same
+  // three lines, so the headline cannot drift between the page and the card.
+  headline: ["Web siteleri", "tasarlar,", "kodlarım."],
   // Hero one-liner. Bold but readable.
   tagline:
     "İşinizi doğru anlatan siteler ve filmler üretiyorum, baştan sona kendim.",

@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const study = getCaseStudy(slug);
   if (!study) return {};
-  const meta = pageMetadata(study.title, study.summary, `/work/${slug}`);
+  const meta = pageMetadata(study.title, study.summary, `/work/${slug}`, `/work/${slug}/opengraph-image`);
   // Unlisted cases stay reachable for anyone holding the link, but they are
   // kept out of search results because the showcase no longer offers them.
   return study.listed === false

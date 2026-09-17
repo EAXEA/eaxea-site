@@ -70,15 +70,11 @@ export default function Hero() {
         </div>
 
         <h1 className="display text-[clamp(2.8rem,11vw,9.5rem)] uppercase">
-          <span data-hero-line className="block overflow-hidden">
-            <span className="block">Web siteleri</span>
-          </span>
-          <span data-hero-line className="block overflow-hidden">
-            <span className="block gradient-text">tasarlar,</span>
-          </span>
-          <span data-hero-line className="block overflow-hidden">
-            <span className="block">kodlarım.</span>
-          </span>
+          {site.headline.map((line, i) => (
+            <span key={line} data-hero-line className="block overflow-hidden">
+              <span className={i === 1 ? "block gradient-text" : "block"}>{line}</span>
+            </span>
+          ))}
         </h1>
 
         <p
