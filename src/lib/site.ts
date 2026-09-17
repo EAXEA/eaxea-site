@@ -4,8 +4,10 @@
 export const site = {
   name: "MAIA'S WORKS",
   founder: "Cihan Şenocak",
-  // Legal entity behind invoices and the KVKK notice.
-  // TODO: replace with the exact registered title and address before launch.
+  // Trade name of the business that invoices this work. Footer display only.
+  // The registered title, form, address and tax office live in one place —
+  // `maiamari-studio/lib/legal.ts` (SELLER) — and the KVKK notice must read the
+  // exact values from there rather than restating them here.
   legalName: "Maiamari",
   role: "Tasarım, kod ve kurgu",
   // The hero H1, one entry per masked line. The share image renders the same

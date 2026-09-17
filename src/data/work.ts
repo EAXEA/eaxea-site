@@ -132,13 +132,16 @@ export const work: CaseStudy[] = [
       "Prelaunch denetimiyle kontrastı AA'ya çektim; skip-link, form hatalarında odak yönetimi ekledim",
     ],
     outcome: [
-      "İlk karede boyanan LCP ile ~144 ms ölçüm, 0.011 CLS",
+      "İlk ziyarette 0,9 sn altında açılan, kaymayan bir sayfa",
       "JSON-LD, sitemap ve markalı OG görselleriyle tam SEO paketi",
       "8 bölümlük, talep formuna akan dönüşüm kurgusu",
     ],
+    // Ölçüm 17.09.2026, canlı fixgo.vip, masaüstü Chrome / geniş bant, üç koşu:
+    // soğuk 888ms, önbellek atlatılmış 700ms, sıcak 180ms. CLS üçünde de 0.0019.
+    // Vitrine en iyi koşu değil, ilk ziyaret değeri yazılır.
     metrics: [
-      { label: "LCP (lab ölçümü)", value: "144ms" },
-      { label: "CLS (lab ölçümü)", value: "0.011" },
+      { label: "LCP (ilk ziyaret, masaüstü lab)", value: "0,9s" },
+      { label: "CLS (üç koşu)", value: "0,002" },
       { label: "Kurgu", value: "8 bölüm" },
     ],
     accent: "#2F7DFF",
@@ -265,12 +268,12 @@ export const work: CaseStudy[] = [
     year: "2026",
     role: ["Design", "Full-Stack", "Motion"],
     stack: ["Next.js 14", "Glassmorphism", "Adaptive Dark"],
-    status: "Konsept · çalışmaya ara verildi",
+    status: "Konsept · müşteri içerik topluyor",
     phase: "paused",
     summary:
       "Premium bir veteriner kliniği için Apple HIG ilhamlı, güven veren bir portal konsepti.",
     intro:
-      "VetVital, Çankaya'da premium bir veteriner kliniği. Bu, sahiplerine güven ve sıcaklık hissi veren, aynı zamanda teknolojik ve modern duran bir dijital yüz için hazırladığım konsept tasarım. Çalışmaya ara verildi; teslim edilmiş bir müşteri işi değil, konsept aşamasında kaldı.",
+      "VetVital, Çankaya'da premium bir veteriner kliniği. Bu, sahiplerine güven ve sıcaklık hissi veren, aynı zamanda teknolojik ve modern duran bir dijital yüz için hazırladığım konsept tasarım. Klinik sitenin içeriğini toparlıyor; iş o yüzden beklemede, henüz yayına alınmış bir teslimat değil.",
     challenge:
       "Tıbbi ciddiyet ile evcil hayvan sıcaklığını aynı arayüzde dengelemek; her cihazda kusursuz çalışan adaptif bir karanlık mod kurmak.",
     approach: [
