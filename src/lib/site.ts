@@ -20,8 +20,9 @@ export const site = {
   positioning: "Web tasarımı · Full-stack · Yapay zeka destekli geliştirme · Video ve film",
   description:
     "MAIA'S WORKS, Cihan Şenocak'ın bağımsız tasarım ve geliştirme çalışması. Web tarafında landing page'den kurumsal siteye, katalog platformundan tarayıcı eklentisine kadar projeyi tasarlayıp sıfırdan kodluyorum; yapay zeka destekli geliştirme sürecin standart parçası. Video tarafında belgesel kurgusu, kurumsal film ve Blender ile teknik animasyon geçmişim var. Şablon yok, her iş projeye özel.",
-  // Public URL — swap to the custom domain when it's purchased.
-  url: "https://eaxea-site.vercel.app",
+  // Public URL. maias.works went live 18.09.2026; the two vercel.app production
+  // aliases 308 to it (see next.config.ts), so this stays the single canonical.
+  url: "https://maias.works",
   locale: "tr_TR",
   // Google Workspace alias; info@maiamari.art ortak kutusuna düşer (18.09.2026).
   email: "cihan@maiamari.art",

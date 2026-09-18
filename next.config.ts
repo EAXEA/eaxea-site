@@ -5,8 +5,20 @@ const isDev = process.env.NODE_ENV === "development";
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   async redirects() {
-    // The about page moved from /studio to /hakkimda with the brand change.
-    return [{ source: "/studio", destination: "/hakkimda", permanent: true }];
+    return [
+      // The about page moved from /studio to /hakkimda with the brand change.
+      { source: "/studio", destination: "/hakkimda", permanent: true },
+      // One canonical host. Both production aliases send visitors and crawlers
+      // to maias.works so the same pages are not served under three names.
+      // Matched by exact host, never `*.vercel.app`: preview deployments get
+      // their own hashed hostnames and must stay reachable.
+      ...["eaxea-site.vercel.app", "maias-works.vercel.app"].map((host) => ({
+        source: "/:path*",
+        has: [{ type: "host" as const, value: host }],
+        destination: "https://maias.works/:path*",
+        permanent: true,
+      })),
+    ];
   },
   async headers() {
     return [{
