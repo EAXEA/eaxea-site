@@ -145,7 +145,8 @@ export default function ContactForm() {
         <a href={`mailto:${site.email}`} className="text-muted underline">
           {site.email}
         </a>{" "}
-        adresine de yazabilirsin.
+        adresine de yazabilirsin. Yazdıkların yalnızca sana dönüş yapmak için kullanılır;
+        ayrıntı <a href="/kvkk" className="text-muted underline">aydınlatma metninde</a>.
       </p>
     </form>
   );

@@ -23,7 +23,8 @@ export const site = {
   // Public URL — swap to the custom domain when it's purchased.
   url: "https://eaxea-site.vercel.app",
   locale: "tr_TR",
-  email: "scsenocak@gmail.com",
+  // Google Workspace alias; info@maiamari.art ortak kutusuna düşer (18.09.2026).
+  email: "cihan@maiamari.art",
   location: "Ankara · Remote",
   availability: "Yeni proje alımı açık",
   // Client-facing response-time promise — adjust to your real cadence.
@@ -33,8 +34,8 @@ export const site = {
     { label: "GitHub", handle: "EAXEA", href: "https://github.com/EAXEA" },
     {
       label: "Email",
-      handle: "scsenocak@gmail.com",
-      href: "mailto:scsenocak@gmail.com",
+      handle: "cihan@maiamari.art",
+      href: "mailto:cihan@maiamari.art",
     },
   ],
   nav: [

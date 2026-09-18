@@ -7,7 +7,7 @@ import { listedWork } from "@/data/work";
 // wrong, so omitting it is worth more than a field that always lies.
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = site.url.replace(/\/$/, "");
-  const routes = ["", "/hakkimda", "/work", "/contact"].map((path) => ({
+  const routes = ["", "/hakkimda", "/work", "/contact", "/kvkk"].map((path) => ({
     url: `${base}${path}`,
     changeFrequency: "monthly" as const,
     priority: path === "" ? 1 : 0.8,

@@ -40,7 +40,7 @@ export default function Footer() {
 
           <div className="flex flex-col gap-3">
             <p className="eyebrow mb-1">Menü</p>
-            {[{ label: "Ana sayfa", href: "/" }, ...site.nav].map((i) => (
+            {[{ label: "Ana sayfa", href: "/" }, ...site.nav, { label: "KVKK", href: "/kvkk" }].map((i) => (
               <Link
                 key={i.href}
                 href={i.href}

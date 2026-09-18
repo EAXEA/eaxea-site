@@ -25,7 +25,8 @@ After approval: commit reviewed changes, tag the agreed version, push master and
 ## User decisions and real assets
 
 - Custom domain: user chooses/purchases it; update site.ts, Vercel/DNS and canonical tests together. Current URL: https://eaxea-site.vercel.app.
-- Backend contact delivery: requires sender/provider configuration and privacy requirements. Never reuse another client project's credentials.
+- Backend contact delivery: requires sender/provider configuration and privacy requirements. Never reuse another client project's credentials. Decision 18.09.2026: the form stays mailto, recipient `cihan@maiamari.art` (Workspace alias); no provider needed unless server-side sending is requested.
+- KVKK: `/kvkk` (src/app/kvkk) states the real data flow (mailto + Google Workspace + Vercel logs, no analytics). Controller identity lives in `src/lib/legal.ts`, mirrored from maiamari-studio SELLER. Lawyer review of the retention period and the m.9 transfer basis is still open; update `LEGAL_UPDATED` on every text change.
 - Testimonial: actual customer text and approval.
 - Showreel: real footage and an approved edit; existing film credits are linked on Studio.
 - Pricing: actual starting price, if the user wants to publish one.
