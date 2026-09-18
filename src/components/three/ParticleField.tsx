@@ -40,10 +40,10 @@ const fragment = /* glsl */ `
 `;
 
 const PALETTE = [
-  new THREE.Color("#ff5c28"), // ember
-  new THREE.Color("#ff2d9c"), // magenta
-  new THREE.Color("#6e5bff"), // violet
-  new THREE.Color("#2fe0ff"), // cyan
+  new THREE.Color("#fd755b"), // ember (cekirdek)
+  new THREE.Color("#d9472c"), // ember-deep
+  new THREE.Color("#54a8c6"), // norse
+  new THREE.Color("#ace9ff"), // norse-3 (kenar)
 ];
 
 const pixelRatio = () =>

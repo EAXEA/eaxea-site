@@ -130,7 +130,7 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="group inline-flex items-center justify-center gap-2 rounded-full bg-ember px-7 py-4 text-sm font-medium text-[#0a0506] transition-colors hover:bg-fg"
+        className="group inline-flex items-center justify-center gap-2 rounded-full bg-pumpkin px-7 py-4 text-sm font-medium text-fg transition-colors hover:bg-ember hover:text-bg"
       >
         E-posta taslağını aç
         <span className="transition-transform group-hover:translate-x-1">→</span>

@@ -9,7 +9,7 @@ export default function ServicesSection() {
       id="services"
       className="mx-auto max-w-[1400px] px-5 py-24 md:px-8 md:py-32"
     >
-      <div className="mb-16 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+      <div className="mb-14 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="eyebrow mb-5">[ Hizmetler ]</p>
           <AnimatedHeading

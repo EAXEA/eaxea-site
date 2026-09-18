@@ -27,7 +27,7 @@ export default function PhaseBadge({
         )}
         <span
           className="relative inline-flex size-1.5 rounded-full"
-          style={{ background: ongoing ? "var(--color-ember)" : phase === "done" ? "#34D399" : "var(--color-muted)" }}
+          style={{ background: ongoing ? "var(--color-ember)" : phase === "done" ? "var(--color-norse-3)" : "var(--color-muted)" }}
         />
       </span>
       {labels[phase]}

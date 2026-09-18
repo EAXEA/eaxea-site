@@ -21,7 +21,7 @@ export default function ShowcaseCard({
   const { ref: videoRef, pausedByUser, controllable, toggle } = useShowcaseVideo(`/showcase/${study.slug}.webm`);
 
   return (
-    <div>
+    <div className="group/card relative">
     <Link
       href={`/work/${study.slug}`}
       className="group block"
@@ -44,29 +44,28 @@ export default function ShowcaseCard({
           <GradientCover accent={study.accent} className="absolute inset-0" />
         )}
         {/* readability scrim */}
-        <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/20" />
+        <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bg/90 via-bg/10 to-bg/25" />
 
         {/* index + status — desktop only (keeps the mobile album cover clean) */}
         <span className="absolute left-4 top-4 hidden font-mono text-xs text-white/70 md:block">
           {String(index + 1).padStart(2, "0")}
         </span>
-        <span
-          className="absolute right-4 top-4 hidden rounded-full border px-2.5 py-1 font-mono text-[0.6rem] uppercase tracking-widest backdrop-blur md:block"
-          style={{
-            color: study.accent,
-            borderColor: "color-mix(in oklab, var(--accent) 50%, transparent)",
-            background: "color-mix(in oklab, var(--accent) 12%, rgba(0,0,0,0.35))",
-          }}
-        >
-          {study.status}
-        </span>
-
-        {/* desktop overlaid title */}
-        <div className="absolute inset-x-0 bottom-0 hidden p-5 md:block">
-          <h3 className="display text-[clamp(1.6rem,2.6vw,2.4rem)] uppercase leading-[0.95] text-white">
+        {/* desktop overlaid title. Sized for the 6-up strip at xl and the 3-up grid at md. */}
+        <div className="absolute inset-x-0 bottom-0 hidden p-4 md:block">
+          <span
+            className="mb-3 inline-block rounded-full border px-2.5 py-1 font-mono text-[0.6rem] uppercase tracking-widest backdrop-blur"
+            style={{
+              color: study.accent,
+              borderColor: "color-mix(in oklab, var(--accent) 50%, transparent)",
+              background: "color-mix(in oklab, var(--accent) 12%, rgba(3,25,32,0.45))",
+            }}
+          >
+            {study.status}
+          </span>
+          <h3 className="display text-[clamp(1.2rem,1.7vw,1.7rem)] uppercase leading-[0.95] text-fg">
             {study.title}
           </h3>
-          <p className="mt-1.5 text-sm text-white/65">{study.category}</p>
+          <p className="mt-1.5 text-xs text-fg/65">{study.category}</p>
           <span
             className="mt-3 block h-[3px] w-10 origin-left rounded-full transition-transform duration-500 group-hover:scale-x-[2.4]"
             style={{ background: study.accent }}
@@ -86,16 +85,14 @@ export default function ShowcaseCard({
       </div>
     </Link>
     {study.media && controllable && (
-      <div className="mt-2 flex justify-end">
-        <button
-          type="button"
-          onClick={toggle}
-          aria-label={`${study.title} önizlemesi: ${pausedByUser ? "oynat" : "duraklat"}`}
-          className="inline-flex min-h-11 items-center rounded-full px-3 text-[0.65rem] uppercase tracking-widest text-faint transition-colors hover:text-fg"
-        >
-          {pausedByUser ? "Oynat" : "Duraklat"}
-        </button>
-      </div>
+      <button
+        type="button"
+        onClick={toggle}
+        aria-label={`${study.title} önizlemesi: ${pausedByUser ? "oynat" : "duraklat"}`}
+        className="absolute right-2 top-2 z-10 inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-line bg-bg/70 px-3 text-[0.65rem] uppercase tracking-widest text-muted backdrop-blur transition-[opacity,color,border-color] hover:border-line-strong hover:text-fg md:opacity-0 md:group-hover/card:opacity-100 md:focus-visible:opacity-100 md:[.group\/card:focus-within_&]:opacity-100"
+      >
+        {pausedByUser ? "Oynat" : "Duraklat"}
+      </button>
     )}
     </div>
   );

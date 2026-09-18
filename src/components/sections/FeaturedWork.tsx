@@ -6,7 +6,7 @@ import AnimatedHeading from "@/components/motion/AnimatedHeading";
 export default function FeaturedWork() {
   return (
     <section className="mx-auto max-w-[1400px] px-5 py-24 md:px-8 md:py-32">
-      <div className="mb-12 flex items-end justify-between gap-6">
+      <div className="mb-14 flex items-end justify-between gap-6">
         <div>
           <p className="eyebrow mb-5">[ Seçili işler ]</p>
           <AnimatedHeading
@@ -23,7 +23,7 @@ export default function FeaturedWork() {
         </Link>
       </div>
 
-      <div className="grid grid-cols-2 gap-2.5 sm:gap-4 md:grid-cols-4 md:gap-6">
+      <div className="grid grid-cols-2 gap-2.5 sm:gap-4 md:grid-cols-3 md:gap-5 xl:grid-cols-6 xl:gap-4">
         {featuredWork.map((study, i) => (
           <ShowcaseCard key={study.slug} study={study} index={i} />
         ))}

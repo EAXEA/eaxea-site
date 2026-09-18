@@ -16,8 +16,8 @@ export function Spark({ className }: { className?: string }) {
         <defs>
           <linearGradient id="spark-g" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stopColor="var(--color-ember)" />
-            <stop offset="50%" stopColor="var(--color-magenta)" />
-            <stop offset="100%" stopColor="var(--color-cyan)" />
+            <stop offset="50%" stopColor="var(--color-ember-3)" />
+            <stop offset="100%" stopColor="var(--color-norse-3)" />
           </linearGradient>
         </defs>
         <g stroke="url(#spark-g)" strokeWidth="2.2" strokeLinecap="round">

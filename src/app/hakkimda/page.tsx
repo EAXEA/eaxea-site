@@ -65,7 +65,7 @@ export default function HakkimdaPage() {
       {/* Principles */}
       <section className="border-y border-line bg-bg-2">
         <div className="mx-auto max-w-[1400px] px-5 py-24 md:px-8 md:py-32">
-          <div className="mb-16">
+          <div className="mb-14">
             <p className="eyebrow mb-5">[ İlkeler ]</p>
             <AnimatedHeading
               as="h2"
@@ -73,7 +73,7 @@ export default function HakkimdaPage() {
               className="text-[clamp(2.2rem,6vw,4.5rem)] uppercase"
             />
           </div>
-          <Reveal stagger className="grid gap-10 md:grid-cols-3 md:gap-8">
+          <Reveal stagger className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
             {principles.map((p, i) => (
               <div key={i} data-reveal-item className="flex flex-col gap-4">
                 <span className="font-mono text-sm text-ember">
@@ -92,7 +92,7 @@ export default function HakkimdaPage() {
         id="ekran-gecmisi"
         className="mx-auto max-w-[1400px] scroll-mt-24 px-5 py-24 md:px-8 md:py-32"
       >
-        <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div className="mb-14 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="eyebrow mb-5">[ Kamera arkası ]</p>
             <AnimatedHeading
@@ -119,7 +119,7 @@ export default function HakkimdaPage() {
               <h3 className="display text-xl uppercase md:col-span-3 md:text-2xl">
                 {c.title}
               </h3>
-              <span className="font-mono text-[0.65rem] uppercase tracking-widest text-magenta md:col-span-3">
+              <span className="font-mono text-[0.65rem] uppercase tracking-widest text-ember md:col-span-3">
                 {c.tag}
               </span>
               <p className="text-sm leading-relaxed text-muted md:col-span-4">

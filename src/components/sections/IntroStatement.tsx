@@ -40,8 +40,8 @@ export default function IntroStatement() {
   );
 
   return (
-    <section className="mx-auto max-w-[1400px] px-5 py-28 md:px-8 md:py-40">
-      <p className="eyebrow mb-10">[ Yaklaşım ]</p>
+    <section className="mx-auto max-w-[1400px] px-5 py-24 md:px-8 md:py-32">
+      <p className="eyebrow mb-8">[ Yaklaşım ]</p>
       <div
         ref={ref}
         className="display max-w-5xl text-[clamp(1.7rem,4.2vw,3.4rem)] leading-[1.18] tracking-tight"

@@ -18,7 +18,7 @@ const base =
   "group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-7 py-3.5 text-sm font-medium transition-colors duration-300";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-ember text-[#0a0506] hover:bg-fg",
+  primary: "bg-pumpkin text-fg hover:bg-ember hover:text-bg",
   ghost: "border border-line-strong text-fg hover:border-ember hover:text-ember",
 };
 

@@ -6,7 +6,7 @@ export default function ProcessSection() {
   return (
     <section className="border-y border-line bg-bg-2">
       <div className="mx-auto max-w-[1400px] px-5 py-24 md:px-8 md:py-32">
-        <div className="mb-16">
+        <div className="mb-14">
           <p className="eyebrow mb-5">[ Süreç ]</p>
           <AnimatedHeading
             as="h2"

@@ -26,7 +26,7 @@ export default function OgCard({
   eyebrow,
   footerLeft,
   footerRight,
-  accent = "#ff5c28",
+  accent = "#fd755b",
 }: Props) {
   // Long case titles would overflow at the display size, so the type shrinks
   // once a line gets wide rather than running off the card.
@@ -42,8 +42,8 @@ export default function OgCard({
         flexDirection: "column",
         justifyContent: "space-between",
         padding: 80,
-        background: `radial-gradient(60% 80% at 20% 10%, ${accent}22 0%, #060608 55%)`,
-        color: "#ededf2",
+        background: `radial-gradient(60% 80% at 20% 10%, ${accent}22 0%, #031920 55%)`,
+        color: "#efe8da",
         fontFamily: "sans-serif",
       }}
     >
@@ -53,14 +53,14 @@ export default function OgCard({
             width: 28,
             height: 28,
             borderRadius: 999,
-            background: "linear-gradient(135deg, #ff5c28, #ff2d9c 45%, #2fe0ff)",
+            background: "linear-gradient(135deg, #fd755b, #ffa387 45%, #ace9ff)",
           }}
         />
         <div style={{ fontSize: 30, fontWeight: 700, letterSpacing: -1 }}>
           {site.name}
         </div>
         {eyebrow && (
-          <div style={{ fontSize: 24, color: "#8b8b9c" }}>{eyebrow}</div>
+          <div style={{ fontSize: 24, color: "#8cc8df" }}>{eyebrow}</div>
         )}
       </div>
 
@@ -73,7 +73,7 @@ export default function OgCard({
               fontWeight: 800,
               lineHeight: 1,
               letterSpacing: -3,
-              color: i === 1 ? accent : "#ededf2",
+              color: i === 1 ? accent : "#efe8da",
             }}
           >
             {/* Uppercased here, not with textTransform: the renderer has no
@@ -94,7 +94,7 @@ export default function OgCard({
           alignItems: "flex-end",
           gap: 40,
           fontSize: 26,
-          color: "#8b8b9c",
+          color: "#8cc8df",
         }}
       >
         <span style={{ display: "flex", maxWidth: 760, lineHeight: 1.3 }}>

@@ -50,7 +50,7 @@ export default function CaseCover({ study }: { study: CaseStudy }) {
           background: `radial-gradient(closest-side, ${study.accent}, transparent 70%)`,
         }}
       />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(6,6,8,0.7)_100%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(3,25,32,0.7)_100%)]" />
 
       {/* left: framed desktop still (duo works only, desktop viewports) */}
       {study.mediaWide && (

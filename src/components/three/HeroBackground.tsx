@@ -73,14 +73,14 @@ export default function HeroBackground() {
         className="absolute left-1/2 top-[42%] aspect-square w-[120vmin] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-70 blur-[80px]"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(255,92,40,0.55), rgba(255,45,156,0.25) 45%, rgba(110,91,255,0.18) 70%, transparent 80%)",
+            "radial-gradient(closest-side, rgba(253,117,91,0.5), rgba(217,71,44,0.24) 45%, rgba(84,168,198,0.2) 70%, transparent 80%)",
         }}
       />
       <div
         className="absolute right-[10%] top-[20%] aspect-square w-[60vmin] rounded-full opacity-50 blur-[90px]"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(47,224,255,0.4), transparent 75%)",
+            "radial-gradient(closest-side, rgba(172,233,255,0.38), transparent 75%)",
         }}
       />
 
@@ -91,7 +91,7 @@ export default function HeroBackground() {
       )}
 
       {/* vignette + bottom fade into the page */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(6,6,8,0.7)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(3,25,32,0.7)_100%)]" />
       <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-bg to-transparent" />
     </div>
   );

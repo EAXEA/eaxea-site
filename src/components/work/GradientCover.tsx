@@ -34,12 +34,12 @@ export default function GradientCover({
           background: `radial-gradient(closest-side, ${accent}, transparent 70%)`,
         }}
       />
-      {/* secondary violet glow for depth */}
+      {/* secondary norse glow for depth */}
       <div
         className="absolute -bottom-[25%] right-[-12%] aspect-square w-[65%] rounded-full opacity-45 blur-[80px]"
         style={{
           background:
-            "radial-gradient(closest-side, var(--color-violet), transparent 75%)",
+            "radial-gradient(closest-side, var(--color-norse), transparent 75%)",
         }}
       />
       {/* faint oversized wordmark */}
@@ -51,7 +51,7 @@ export default function GradientCover({
         </div>
       )}
       {/* vignette to seat it on the dark page */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(6,6,8,0.65)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(3,25,32,0.65)_100%)]" />
       {label && (
         <span className="absolute bottom-4 left-4 font-mono text-[0.6rem] uppercase tracking-widest text-white/65">
           {label}

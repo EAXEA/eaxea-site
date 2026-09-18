@@ -41,7 +41,7 @@ export const services: Service[] = [
       "SEO, performans, erişilebilirlik",
       "Deploy & bakım",
     ],
-    accent: "var(--color-violet)",
+    accent: "var(--color-norse)",
     proof: { label: "Canlı örnek: Fixgo", href: "/work/fixgo" },
   },
   {
@@ -57,7 +57,7 @@ export const services: Service[] = [
       "Deneysel UI / WebGL denemeleri",
       "İteratif ürün geliştirme",
     ],
-    accent: "var(--color-cyan)",
+    accent: "var(--color-norse-3)",
     proof: { label: "Ürün çalışması: Bass Assistant", href: "/work/bass-assistant" },
   },
   {
@@ -73,7 +73,7 @@ export const services: Service[] = [
       "Tanıtım & reklam içerikleri",
       "Animasyon & motion overlay (Blender)",
     ],
-    accent: "var(--color-magenta)",
+    accent: "var(--color-ember-3)",
     proof: { label: "Ekran geçmişini gör", href: "/hakkimda#ekran-gecmisi" },
   },
 ];

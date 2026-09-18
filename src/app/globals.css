@@ -2,27 +2,45 @@
 
 /* ------------------------------------------------------------------ */
 /*  MAIA'S WORKS — design tokens                                       */
-/*  Dark cinematic base + neon ember/magenta/violet/cyan accents.      */
+/*  Kurgu Masasi paleti (18.09.2026): Pantone Poseidon zemin ailesi,   */
+/*  Norse Blue metin/cizgi ailesi, Pureed Pumpkin baslik/eylem ailesi, */
+/*  kagit rengi ana metin. Uc renkli riso baski disiplini.             */
+/*  Kontrastlar pos-deep (#031920) ustunde: paper 14,8 / norse-2 9,8 / */
+/*  norse 6,7 / ember 6,8 / ember-deep 4,2 (yalniz buyuk metin) /      */
+/*  paper on pumpkin 5,0.                                              */
 /* ------------------------------------------------------------------ */
 @theme {
-  --color-bg: #060608;
-  --color-bg-2: #0a0a0f;
-  --color-surface: #0d0d14;
-  --color-surface-2: #15151f;
-  --color-line: rgba(255, 255, 255, 0.08);
-  --color-line-strong: rgba(255, 255, 255, 0.16);
+  /* Poseidon ailesi: zemin ve yuzeyler */
+  --color-bg: #031920; /* pos-deep, monitor siyahi */
+  --color-bg-2: #07232c;
+  --color-surface: #0b2b35; /* poseidon */
+  --color-surface-2: #0f333e;
+  --color-line: rgba(140, 200, 223, 0.14);
+  --color-line-strong: rgba(140, 200, 223, 0.28);
 
-  --color-fg: #ededf2;
-  --color-muted: #8b8b9c;
-  /* Third text tier. Dimmer than muted but still WCAG AA (5.09:1 on --color-bg,
-     4.87:1 on --color-surface), unlike the original #5a5a6a at 2.99:1. */
-  --color-faint: #7e7e91;
+  /* Kagit + Norse ailesi: metin kademeleri */
+  --color-fg: #efe8da; /* paper */
+  --color-paper-2: #e4dccb;
+  --color-muted: #8cc8df; /* norse-2 */
+  --color-faint: #54a8c6; /* norse, 6,7:1 on bg */
 
-  --color-ember: #ff5c28;
-  --color-magenta: #ff2d9c;
-  --color-violet: #6e5bff;
-  --color-cyan: #2fe0ff;
-  --color-accent: #ff5c28;
+  /* Norse ailesi: vurgu, secim, cizgi isi */
+  --color-norse: #54a8c6;
+  --color-norse-2: #8cc8df;
+  --color-norse-3: #ace9ff;
+
+  /* Pumpkin ailesi: baslik ve eylem */
+  --color-brick: #7e2312;
+  --color-pumpkin: #b5331b; /* dolgu buton, ustunde paper 5,0 */
+  --color-ember-deep: #d9472c; /* buyuk baslik, yalniz 3:1 esigi */
+  --color-ember: #fd755b; /* kucuk link, nokta, hover */
+  --color-ember-3: #ffa387;
+  --color-accent: #fd755b;
+
+  /* Eski uc neon adi: bilesenler bunlari okur, degerler palete bagli */
+  --color-magenta: #ffa387; /* ember-3 */
+  --color-violet: #54a8c6; /* norse */
+  --color-cyan: #ace9ff; /* norse-3 */
 
   --font-display: var(--font-display-src), "Space Grotesk", system-ui, sans-serif;
   --font-sans: var(--font-sans-src), "Inter", system-ui, sans-serif;
@@ -58,8 +76,8 @@ body {
 }
 
 ::selection {
-  background: var(--color-ember);
-  color: #08080a;
+  background: var(--color-norse-3);
+  color: var(--color-bg);
 }
 
 /* Keyboard focus ring — brand ember, only on :focus-visible so mouse/touch
@@ -135,13 +153,13 @@ html.lenis body {
      cycle. Ember also blends into magenta sooner for a softer entry. */
   background: linear-gradient(
     100deg,
-    var(--color-ember) 0%,
-    var(--color-magenta) 22%,
-    var(--color-violet) 42%,
-    var(--color-cyan) 50%,
-    var(--color-violet) 58%,
-    var(--color-magenta) 78%,
-    var(--color-ember) 100%
+    var(--color-ember-3) 0%,
+    var(--color-ember) 22%,
+    var(--color-norse-3) 42%,
+    var(--color-norse-2) 50%,
+    var(--color-norse-3) 58%,
+    var(--color-ember) 78%,
+    var(--color-ember-3) 100%
   );
   background-size: 200% 100%;
   -webkit-background-clip: text;
@@ -169,7 +187,7 @@ html.lenis body {
 .glow-ring {
   box-shadow:
     0 0 0 1px var(--color-line),
-    0 30px 80px -40px color-mix(in oklab, var(--color-ember) 40%, transparent);
+    0 30px 80px -40px color-mix(in oklab, var(--color-norse) 45%, transparent);
 }
 
 /* Animated conic spark — the brand asterisk echo */
@@ -177,9 +195,9 @@ html.lenis body {
   background: conic-gradient(
     from 0deg,
     var(--color-ember),
-    var(--color-magenta),
-    var(--color-violet),
-    var(--color-cyan),
+    var(--color-ember-3),
+    var(--color-norse-3),
+    var(--color-norse),
     var(--color-ember)
   );
 }

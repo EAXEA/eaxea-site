@@ -87,7 +87,7 @@ export default function Nav() {
             })}
             <Link
               href="/contact"
-              className="ml-2 rounded-full bg-fg px-5 py-2 text-sm font-medium text-[#0a0506] transition-colors hover:bg-ember"
+              className="ml-2 rounded-full bg-pumpkin px-5 py-2 text-sm font-medium text-fg transition-colors hover:bg-ember hover:text-bg"
             >
               Konuşalım
             </Link>
